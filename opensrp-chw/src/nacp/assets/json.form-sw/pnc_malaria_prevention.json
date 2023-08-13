@@ -47,41 +47,136 @@
     "encounter_location": ""
   },
   "step1": {
-    "title": "Kinga dhidi ya Malaria",
+    "title": "Malaria Prevention",
     "fields": [
       {
-        "key": "fam_llin",
+        "key": "malaria_prevention_counselling",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
-        "openmrs_data_type": "select one",
-        "type": "spinner",
-        "hint": "Je, ana chandarua chenye dawa inayodumu kwa muda mrefu (LLIN)?",
-        "values": [
-          "Ndio",
-          "Hapana"
+        "type": "toaster_notes",
+        "toaster_type": "info",
+        "text": "Tujadili pia kuhusu kujikinga na Malaria. Wewe na mtoto wako mpo katika hatari zaidi ya malaria. Malaria itaendelea kuwa hatarishi katika miaka mitano ya mwanzo ya  maisha ya mtoto wako.",
+        "text_color": "#000000"
+      },
+      {
+        "key": "spacer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "spacer",
+        "spacer_height": "15dp"
+      },
+      {
+        "key": "malaria_protective_measures",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "check_box",
+        "label": "Je, unachukua hatua gani kujikinga wewe na mtoto wako dhidi ya Malaria? (Tiki kulingana na majibu ya mama)",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "exclusive": [
+          "chk_none"
         ],
-        "keys": [
-          "Yes",
-          "No"
+        "options": [
+          {
+            "key": "chk_lasting_insecticide_net",
+            "text": "Anatumia chandarua chenye dawa kwa usahihi",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "chk_spraying_insecticide",
+            "text": "Anapulizia nyumba dawa ya kuua mbuu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "chk_doors_and_windows",
+            "text": "Kufunika milango na madirisha na nyavu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "chk_breeding_grounds",
+            "text": "Kuharibu mazalia ya mbuu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "chk_other",
+            "text": "Nyingine",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          },
+          {
+            "key": "chk_none",
+            "text": "Hamna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": ""
+          }
         ],
-        "openmrs_choice_ids": {
-          "Yes": "Yes",
-          "No": "No"
-        },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Please select at least one"
         }
       },
       {
-        "key": "llin_2days",
+        "key": "malaria_protective_measures_other",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
-        "openmrs_data_type": "select one",
+        "type": "edit_text",
+        "edit_type": "text",
+        "hint": "Elezea njia nyingine",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_malaria_prevention_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "praise_malaria_protective_measures",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "positive",
+        "text": "Mpongeze kwa hatua ambazo anachukua.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_malaria_prevention_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "malaria_protective_measures_None",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "warning",
+        "text": "Msisitize kuchukua hatua za kujikinga kwa ajili yake na mtoto.",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_malaria_prevention_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "LLIN_last_night",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
         "type": "spinner",
-        "hint": "Je, alilala chini ya chandarua jana usiku?",
+        "hint": "Je, wewe na mtoto mlilala ndani ya chandarua jana usiku?",
         "values": [
           "Ndiyo",
           "Hapana"
@@ -96,60 +191,85 @@
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Please select one option"
         },
         "relevance": {
-          "step1:fam_llin": {
-            "type": "string",
-            "ex": "equalTo(., \"Yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_malaria_prevention_relevance.yml"
+            }
           }
         }
       },
       {
-        "key": "prompt_for_llin",
-        "type": "toaster_notes",
-        "text": "Tafadhali mshauri mteja umuhimu wa kulala kwenye chandarua chenye dawa LLIN",
-        "openmrs_entity_id": "",
-        "openmrs_entity": "",
-        "openmrs_entity_parent": "",
-        "toaster_type": "problem",
-        "relevance": {
-          "step1:llin_2days": {
-            "type": "string",
-            "ex": "equalTo(., \"No\")"
-          }
-        }
-      },
-      {
-        "key": "llin_condition",
+        "key": "LLIN_condition",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
-        "openmrs_data_type": "select one",
         "type": "spinner",
         "hint": "Hali ya chandarua",
         "values": [
           "Nzuri",
-          "Mbaya (Chandarua kimechanika)"
+          "Kawaida",
+          "Mbaya"
         ],
         "keys": [
-          "Okay",
-          "Bad"
+          "Good",
+          "Fair",
+          "Poor"
         ],
         "openmrs_choice_ids": {
-          "Okay": "Okay",
-          "Bad": "Bad"
+          "Good": "Good",
+          "Fair": "Fair",
+          "Poor": "Poor"
         },
         "v_required": {
           "value": "true",
-          "err": "Tafadhali chagua chaguo moja"
+          "err": "Please select one option"
         },
         "relevance": {
-          "step1:fam_llin": {
-            "type": "string",
-            "ex": "equalTo(., \"Yes\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_malaria_prevention_relevance.yml"
+            }
           }
         }
+      },
+      {
+        "key": "spacer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "spacer",
+        "spacer_height": "15dp"
+      },
+      {
+        "key": "health_facility_testing_treatment_malaria",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "info",
+        "text": "Mama ni muhimu kwenda katika kituo cha kutolea huduma za afya pale unapojihisi una dalili za malaria (kwa mfano: kuumwa kichwa, kupoteza hamu ya kula; uchovu nk) ili kupata matibabu.",
+        "text_color": "#000000"
+      },
+      {
+        "key": "spacer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "spacer",
+        "spacer_height": "15dp"
+      },
+      {
+        "key": "kk_play_and_communication_flipbook_reference",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "info",
+        "text": "Tafadhali fungua kitendea kazi namba 7 kwenye bango kitita ili kuendelea na majadiliano.",
+        "text_color": "#000000"
       }
     ]
   }
