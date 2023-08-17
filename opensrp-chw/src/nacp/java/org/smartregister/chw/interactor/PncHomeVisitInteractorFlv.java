@@ -597,17 +597,22 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
 
     private void evaluateMalariaPrevention() throws Exception {
         HomeVisitActionHelper malariaPreventionHelper = new HomeVisitActionHelper() {
-            private String fam_llin;
-            private String llin_2days;
-            private String llin_condition;
+            private String malaria_protective_measures;
+
+            private String malaria_protective_measures_keys;
+
+            private String LLIN_last_night;
+
+            private String LLIN_condition;
 
             @Override
             public void onPayloadReceived(String jsonPayload) {
                 try {
                     JSONObject jsonObject = new JSONObject(jsonPayload);
-                    fam_llin = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "fam_llin");
-                    llin_2days = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "llin_2days");
-                    llin_condition = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "llin_condition");
+                    malaria_protective_measures_keys = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "malaria_protective_measures");
+                    malaria_protective_measures = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "malaria_protective_measures");
+                    LLIN_last_night = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "LLIN_last_night");
+                    LLIN_condition = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "LLIN_condition");
                 } catch (JSONException e) {
                     Timber.e(e);
                 }
@@ -616,26 +621,27 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
             @Override
             public String evaluateSubTitle() {
                 StringBuilder stringBuilder = new StringBuilder();
-                if (fam_llin.equalsIgnoreCase("No")) {
-                    stringBuilder.append(MessageFormat.format("{0}: {1}\n", context.getString(R.string.uses_net), StringUtils.capitalize(getTranslatedValue(fam_llin.trim().toLowerCase()))));
-                } else if (fam_llin.equalsIgnoreCase("Yes")) {
-                    stringBuilder.append(MessageFormat.format("{0}: {1} · ", context.getString(R.string.uses_net), StringUtils.capitalize(getTranslatedValue(fam_llin.trim().toLowerCase()))));
-                    stringBuilder.append(MessageFormat.format("{0}: {1} · ", context.getString(R.string.slept_under_net), StringUtils.capitalize(getTranslatedValue(llin_2days.trim().toLowerCase()))));
-                    stringBuilder.append(MessageFormat.format("{0}: {1}", context.getString(R.string.net_condition), StringUtils.capitalize(getTranslatedValue(llin_condition.trim().toLowerCase()))));
+                String malaria_protective_measures_values = MessageFormat.format("{0}: {1}", context.getString(R.string.pnc_malaria_prevention), malaria_protective_measures) + "\n";
+                String LLIN_last_night_value = MessageFormat.format("{0}: {1}", context.getString(R.string.slept_under_net), StringUtils.capitalize(getTranslatedValue(LLIN_last_night.trim().toLowerCase()))) + "\n";
+                String LLIN_condition_value = MessageFormat.format("{0}: {1}", context.getString(R.string.net_condition), StringUtils.capitalize(getTranslatedValue(LLIN_condition.trim().toLowerCase())));
+                stringBuilder.append(malaria_protective_measures_values);
+                if(!LLIN_last_night.isEmpty()){
+                    stringBuilder.append(LLIN_last_night_value);
+                }
+                if(!LLIN_condition.isEmpty()){
+                    stringBuilder.append(LLIN_condition_value);
                 }
                 return stringBuilder.toString();
             }
 
             @Override
             public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
-                if (StringUtils.isBlank(fam_llin)) {
+                if (StringUtils.isBlank(malaria_protective_measures_keys)) {
                     return BaseAncHomeVisitAction.Status.PENDING;
-                }
-
-                if (fam_llin.equalsIgnoreCase("Yes") && llin_2days.equalsIgnoreCase("Yes") && llin_condition.equalsIgnoreCase("Okay")) {
-                    return BaseAncHomeVisitAction.Status.COMPLETED;
-                } else {
+                }else if(malaria_protective_measures_keys.contains("chk_none") || LLIN_last_night.equalsIgnoreCase("No") || LLIN_condition.equalsIgnoreCase("Poor")){
                     return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
+                }else {
+                    return BaseAncHomeVisitAction.Status.COMPLETED;
                 }
             }
         };
@@ -643,6 +649,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
         BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_malaria_prevention))
                 .withOptional(false)
                 .withDetails(details)
+                .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                 .withFormName(Constants.JSON_FORM.PNC_HOME_VISIT.getMalariaPrevention())
                 .withHelper(malariaPreventionHelper)
                 .build();
