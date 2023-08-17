@@ -9,7 +9,7 @@ actions:
 name: step1_praise_malaria_protective_measures
 description: Praise malaria protective measures
 priority: 1
-condition: "step1_malaria_protective_measures.contains('chk_lasting_insecticide_net') || step1_malaria_protective_measures.contains('chk_spraying_insecticide') || step1_malaria_protective_measures.contains('chk_doors_and_windows') || step1_malaria_protective_measures.contains('chk_breeding_grounds')"
+condition: "step1_malaria_protective_measures.contains('chk_lasting_insecticide_net') || step1_malaria_protective_measures.contains('chk_spraying_insecticide') || step1_malaria_protective_measures.contains('chk_doors_and_windows') || step1_malaria_protective_measures.contains('chk_breeding_grounds') || step1_malaria_protective_measures.contains('chk_other')"
 actions:
   - "isRelevant = true"
 ---

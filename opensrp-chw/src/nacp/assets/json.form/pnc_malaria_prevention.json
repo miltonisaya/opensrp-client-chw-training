@@ -130,6 +130,10 @@
         "type": "edit_text",
         "edit_type": "text",
         "hint": "Specify other",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the other protective measure"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
