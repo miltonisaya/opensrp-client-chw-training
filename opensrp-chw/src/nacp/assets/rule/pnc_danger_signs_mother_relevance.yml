@@ -1,0 +1,42 @@
+---
+name: step1_issue_referral_mother
+description: If Danger Sign Present Refer Her to the Health Facility
+priority: 1
+condition: "step1_visited_health_facility =='no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_discuss_mother_advice_health_facility
+description: Discuss with Mother on Advice She got from Health Facility
+priority: 1
+condition: "step1_visited_health_facility =='yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_issue_referral_mother_yes
+description: Send Referral for Mother
+priority: 1
+condition: "step1_mother_referral_health_facility =='yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_no_issue_referral_mother
+description: No Referral for Mother
+priority: 1
+condition: "step1_mother_referral_health_facility =='no'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mother_referral_health_facility
+description: Based on Discuss with Mother check if she need Referral Again
+priority: 1
+condition: "step1_visited_health_facility =='yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_save_n_refer
+description: Send Referral for Mother
+priority: 1
+condition: "step1_mother_referral_health_facility =='yes' || step1_visited_health_facility =='no'"
+actions:
+  - "isRelevant = true"
