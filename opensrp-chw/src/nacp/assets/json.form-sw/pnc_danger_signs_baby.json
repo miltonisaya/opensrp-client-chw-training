@@ -148,14 +148,14 @@
         }
       },
       {
-        "key": "danger_signs_present_toaster",
+        "key": "danger_signs_present_child_toaster",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Dalili ya hatari! Mpatie rufaa kwenda kituo cha afya haraka",
-        "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "text": "Tumetambua kuwa mtoto ana dalili za hatari. Usijali, kwa sababu masharti haya yatadhibitiwa ukifika kwenye kituo cha afya?",
+        "toaster_info_text": "Tumetambua kuwa mtoto ana dalili za hatari. Usijali, kwa sababu masharti haya yatadhibitiwa ukifika kwenye kituo cha afya?",
+        "toaster_type": "warning",
         "relevance": {
           "step1:danger_signs_present_child": {
             "ex-checkbox": [
@@ -167,16 +167,193 @@
                   "chk_difficult_breathing",
                   "chk_unable_to_suck",
                   "chk_umbilical_discharge",
-                  "chk_no_movement",
                   "chk_convulsions",
                   "chk_skin_rashes",
                   "chk_pale",
-                  "chk_eye_discharge",
                   "chk_severe_abdominal_pain",
-                  "chk_lethargy"
+                  "chk_lethargy",
+                  "chk_urination"
                 ]
               }
             ]
+          }
+        }
+      },
+      {
+        "key": "neonatal_visited_health_facility",
+        "type": "native_radio",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_parent": "",
+        "label": "Je, katika siku 3 zilizopita, umempeleka mtoto kwenye kituo cha afya kwa mojawapo ya hali hizi zilizotambuliwa?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "Ndio"
+          },
+          {
+            "key": "no",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "Hapana"
+          }
+        ],
+        "relevance": {
+          "step1:danger_signs_present_child": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chk_fever",
+                  "chk_excessive_crying",
+                  "chk_fast_breathing",
+                  "chk_difficult_breathing",
+                  "chk_unable_to_suck",
+                  "chk_umbilical_discharge",
+                  "chk_convulsions",
+                  "chk_skin_rashes",
+                  "chk_pale",
+                  "chk_severe_abdominal_pain",
+                  "chk_lethargy",
+                  "chk_urination"
+                ]
+              }
+            ]
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo"
+        }
+      },
+      {
+        "key": "discuss_neonatal_advice_health_facility",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "\nJadili na mama kuhusu ushauri alioupata kwa masharti haya alipompeleka Mtoto katika kituo cha Afya ikiwa ni pamoja na Ushauri Nasaha, matibabu wakati wa kufuatilia.",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "issue_referral_neonatal",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "\nUnapaswa kumpeleka Mtoto kwenye kituo cha afya haraka iwezekanavyo na ndani ya saa 24 kwa uchunguzi zaidi.",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "neonatal_referral_health_facility",
+        "type": "native_radio",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_parent": "",
+        "label": "Kulingana na mazungumzo uliyofanya na Mama, unafikiri Mtoto anahitaji kurudi kwenye kituo kwa uchunguzi zaidi?",
+        "options": [
+          {
+            "key": "yes",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "Hapana"
+          },
+          {
+            "key": "no",
+            "openmrs_entity": "",
+            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_parent": "",
+            "text": "Ndio"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo"
+        }
+      },
+      {
+        "key": "issue_referral_neonatal_yes",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Hifadhi na toa rufaa kwenda kituo cha Afya",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "no_issue_referral_neonatal",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Endelea kufuata ushauri na maelekezo ya matibabu ya Mtoto uliyopokea katika kituo cha afya. ikiwa hali ya Mtoto inazidi kuwa mbaya, rudi kwenye kituo mara moja.",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "spacer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "spacer",
+        "type": "spacer",
+        "spacer_height": "20dp"
+      },
+      {
+        "key": "save_n_refer",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "165310AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "type": "button",
+        "hint": "Hifadhi na toa rufaa kwenda kituo cha Afya",
+        "btn_bg_color": "#CF0800",
+        "action": {
+          "behaviour": "refer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "pnc_danger_signs_baby_relevance.yml"
+            }
           }
         }
       }
