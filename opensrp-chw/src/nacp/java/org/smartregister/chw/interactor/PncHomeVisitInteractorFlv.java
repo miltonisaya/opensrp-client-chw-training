@@ -32,6 +32,7 @@ import org.smartregister.chw.dao.ChwPNCDaoFlv;
 import org.smartregister.chw.dao.PersonDao;
 import org.smartregister.chw.domain.PNCHealthFacilityVisitSummary;
 import org.smartregister.chw.util.Constants;
+import org.smartregister.chw.util.NacpCoreConstants;
 import org.smartregister.chw.util.PNCVisitUtil;
 import org.smartregister.immunization.domain.VaccineWrapper;
 import org.smartregister.util.JsonFormUtils;
@@ -81,6 +82,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
         }
 
         try {
+            evaluateVisitLocation();
             evaluateDangerSignsMother();
             for (Person baby : children) {
                 evaluateDangerSignsBaby(baby);
@@ -134,6 +136,16 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
             }
             new AppExecutors().mainThread().execute(() -> callBack.preloadActions(actionList));
         }
+    }
+
+    private void evaluateVisitLocation() throws Exception {
+
+        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_hv_location))
+                .withOptional(false)
+                .withFormName(NacpCoreConstants.PNC_HOME_VISIT.getLocation())
+                .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
+                .build();
+        actionList.put(context.getString(R.string.pnc_hv_location), action);
     }
 
     private void evaluateDangerSignsMother() throws Exception {
