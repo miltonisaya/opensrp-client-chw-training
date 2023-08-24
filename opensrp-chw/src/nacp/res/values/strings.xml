@@ -165,6 +165,7 @@
     <string name="ifa_received_label">IFA tablets received</string>
 
     <string name="pnc_hv_location">Visit Location</string>
+    <string name="pnc_hv_location_captured">Visit location has been captured</string>
 
     <string name="pnc_yes">Yes</string>
     <string name="pnc_no">No</string>
