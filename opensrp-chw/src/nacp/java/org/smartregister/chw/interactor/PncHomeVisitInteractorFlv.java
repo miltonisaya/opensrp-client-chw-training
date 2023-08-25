@@ -859,6 +859,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
         private String jsonPayload;
 
         private final PNCHealthFacilityVisitRule visitRule;
+
         private final int visit_num;
 
         private String pnc_visit;
