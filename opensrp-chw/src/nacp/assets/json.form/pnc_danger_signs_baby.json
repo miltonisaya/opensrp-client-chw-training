@@ -50,6 +50,15 @@
     "title": "Danger Signs Baby",
     "fields": [
       {
+        "key": "neonate_dangersigns",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Now you are at the stage of screening danger signs for this child. Please avoid touching the child in order to avoid the possibility of corona virus transmission. In case you need to physically examine the child, please ask the client to do so on your behalf.\n\nI’m now going to screen your baby for neonatal danger signs. If your child has danger signs, I shall refer him/her to a nearest health facility so that they can receive the appropriate medical attention. Has your baby exhibited any of these symptoms within the past 24 hours?\n\n\nSelect all the symptoms that are reported or observed",
+        "toaster_type": "info"
+      },
+      {
         "key": "danger_signs_present_child",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -303,7 +312,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Save and issue referral to health facility",
+        "text": "Danger sign! \\nRefer immediately to health facility.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
@@ -322,33 +331,6 @@
         "type": "toaster_notes",
         "text": "Continue following the Baby's advice and treatment instructions you received at the health facility. if Baby's condition worsens, return to the facility immediately.",
         "toaster_type": "info",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "pnc_danger_signs_baby_relevance.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "spacer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "spacer",
-        "type": "spacer",
-        "spacer_height": "20dp"
-      },
-      {
-        "key": "save_n_refer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "165310AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "type": "button",
-        "hint": "Save and Refer to Health Facility",
-        "btn_bg_color": "#CF0800",
-        "action": {
-          "behaviour": "refer"
-        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
