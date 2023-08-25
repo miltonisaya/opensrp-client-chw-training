@@ -173,7 +173,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
         BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_hv_location))
                 .withOptional(false)
                 .withDetails(details)
-                .withFormName(NacpCoreConstants.PNC_HOME_VISIT.getLocation())
+                .withFormName(NacpCoreConstants.PncHomeVisit.getLocation())
                 .withHelper(visitLocationHelper)
                 .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                 .build();

@@ -7,7 +7,7 @@ import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.core.utils.Utils;
 
 public class NacpCoreConstants extends CoreConstants {
-    public static class PNC_HOME_VISIT{
+    public static class PncHomeVisit{
         private static final String LOCATION = "pnc_hv_location";
 
         public static String getLocation() {
