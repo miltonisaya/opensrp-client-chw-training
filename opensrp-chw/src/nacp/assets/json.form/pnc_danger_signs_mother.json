@@ -50,6 +50,15 @@
     "title": "Danger Signs Mother",
     "fields": [
       {
+        "key": "introduction_danger_sign_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "First, I'm going to check for any postpartum danger signs. If you have any of the following danger signs, I shall refer you to the nearest health facility so that you can receive the appropriate medical attention.",
+        "toaster_type": "info"
+      },
+      {
         "key": "danger_signs_present_mama",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -311,7 +320,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Save and issue referral to health facility",
+        "text": "Danger sign! \\nRefer immediately to health facility.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
@@ -330,33 +339,6 @@
         "type": "toaster_notes",
         "text": "Continue following the advice and treatment instructions you received at the health facility. if your condition worsens, return to the facility immediately.",
         "toaster_type": "info",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "pnc_danger_signs_mother_relevance.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "spacer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "spacer",
-        "type": "spacer",
-        "spacer_height": "20dp"
-      },
-      {
-        "key": "save_n_refer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "165310AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "type": "button",
-        "hint": "Save and Refer to Health Facility",
-        "btn_bg_color": "#CF0800",
-        "action": {
-          "behaviour": "refer"
-        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

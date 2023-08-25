@@ -50,6 +50,15 @@
     "title": "Dalili za hatari - Mama",
     "fields": [
       {
+        "key": "introduction_danger_sign_screening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Kwanza kabisa nitachunguza kama unadalili za hatari baada ya kujifungua. Iwapo utaonesha una dalili za hatari, nitakupatia rufaa kwenda kituo cha kutolea huduma za afya",
+        "toaster_type": "info"
+      },
+      {
         "key": "danger_signs_present_mama",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -311,7 +320,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Hifadhi na toa rufaa kwenda kituo cha kutolea huduma za afya",
+        "text": "Dalili ya hatari! Mpatie rufaa ya kwenda kituo cha afya haraka.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
@@ -330,33 +339,6 @@
         "type": "toaster_notes",
         "text": "Tafadhali endelea kufuata ushauri na maelekezo ya matibabu uliyopatiwa kituo cha kutolea huduma za afya, kama hali itazidi kuwa mbaya, rudi kituo cha kutolea huduma za afya haraka.",
         "toaster_type": "info",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "pnc_danger_signs_mother_relevance.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "spacer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "spacer",
-        "type": "spacer",
-        "spacer_height": "20dp"
-      },
-      {
-        "key": "save_n_refer",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "165310AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-        "type": "button",
-        "hint": "Hifadhi na toa rufaa kwenda kituo cha Afya",
-        "btn_bg_color": "#CF0800",
-        "action": {
-          "behaviour": "refer"
-        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

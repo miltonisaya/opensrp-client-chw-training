@@ -33,10 +33,3 @@ priority: 1
 condition: "step1_visited_health_facility =='yes'"
 actions:
   - "isRelevant = true"
----
-name: step1_save_n_refer
-description: Send Referral for Mother
-priority: 1
-condition: "step1_mother_referral_health_facility =='yes' || step1_visited_health_facility =='no'"
-actions:
-  - "isRelevant = true"
