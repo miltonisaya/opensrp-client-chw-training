@@ -71,7 +71,7 @@
         "key": "gps",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "163277AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "gps",
         "type": "gps",
         "openmrs_data_type": "text"
       }
