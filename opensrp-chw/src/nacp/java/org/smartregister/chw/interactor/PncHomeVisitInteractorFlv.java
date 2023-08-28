@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
 import org.smartregister.chw.actionhelper.ImmunizationActionHelper;
+import org.smartregister.chw.actionhelper.PNCVisitLocationActionHelper;
 import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
 import org.smartregister.chw.anc.contract.BaseAncHomeVisitContract;
@@ -138,42 +139,11 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
     }
 
     private void evaluateVisitLocation() throws Exception {
-        HomeVisitActionHelper visitLocationHelper = new HomeVisitActionHelper() {
-            private String gpsLocation;
-
-            @Override
-            public void onPayloadReceived(String jsonPayload) {
-                try {
-                    JSONObject jsonObject = new JSONObject(jsonPayload);
-                    JSONArray fields = org.smartregister.chw.anc.util.JsonFormUtils.fields(jsonObject);
-                    gpsLocation = org.smartregister.chw.anc.util.JsonFormUtils.getFieldValue(fields, "gps");
-                } catch (JSONException e) {
-                    Timber.e(e);
-                }
-            }
-
-            @Override
-            public String evaluateSubTitle() {
-                if (gpsLocation != null && !gpsLocation.isEmpty()) {
-                    return context.getString(R.string.pnc_hv_location_captured);
-                }else{
-                    return "";
-                }
-            }
-
-            @Override
-            public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
-                if (StringUtils.isBlank(gpsLocation))
-                    return BaseAncHomeVisitAction.Status.PENDING;
-                return BaseAncHomeVisitAction.Status.COMPLETED;
-            }
-        };
-
         BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_hv_location))
                 .withOptional(false)
                 .withDetails(details)
                 .withFormName(Constants.JsonForm.getPncHvLocation())
-                .withHelper(visitLocationHelper)
+                .withHelper(new PNCVisitLocationActionHelper())
                 .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                 .build();
         actionList.put(context.getString(R.string.pnc_hv_location), action);
