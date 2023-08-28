@@ -32,7 +32,6 @@ import org.smartregister.chw.dao.ChwPNCDaoFlv;
 import org.smartregister.chw.dao.PersonDao;
 import org.smartregister.chw.domain.PNCHealthFacilityVisitSummary;
 import org.smartregister.chw.util.Constants;
-import org.smartregister.chw.util.NacpCoreConstants;
 import org.smartregister.chw.util.PNCVisitUtil;
 import org.smartregister.immunization.domain.VaccineWrapper;
 import org.smartregister.util.JsonFormUtils;
@@ -173,7 +172,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
         BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_hv_location))
                 .withOptional(false)
                 .withDetails(details)
-                .withFormName(NacpCoreConstants.PncHomeVisit.getLocation())
+                .withFormName(Constants.JsonForm.getPncHvLocation())
                 .withHelper(visitLocationHelper)
                 .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                 .build();
