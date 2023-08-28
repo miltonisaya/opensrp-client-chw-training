@@ -71,7 +71,7 @@
         "key": "malaria_protective_measures",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "",
+        "openmrs_entity_id": "malaria_protective_measures",
         "type": "check_box",
         "label": "Je, unachukua hatua gani kujikinga wewe na mtoto wako dhidi ya Malaria? (Tiki kulingana na majibu ya mama)",
         "label_text_style": "normal",
@@ -126,7 +126,7 @@
         "key": "malaria_protective_measures_other",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "",
+        "openmrs_entity_id": "malaria_protective_measures_other",
         "type": "edit_text",
         "edit_type": "text",
         "hint": "Elezea njia nyingine",
@@ -175,10 +175,10 @@
         }
       },
       {
-        "key": "LLIN_last_night",
+        "key": "llin_2days",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "",
+        "openmrs_entity_id": "llin_2days",
         "type": "spinner",
         "hint": "Je, wewe na mtoto mlilala ndani ya chandarua jana usiku?",
         "values": [
@@ -206,10 +206,10 @@
         }
       },
       {
-        "key": "LLIN_condition",
+        "key": "llin_condition",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "",
+        "openmrs_entity_id": "llin_condition",
         "type": "spinner",
         "hint": "Hali ya chandarua",
         "values": [
