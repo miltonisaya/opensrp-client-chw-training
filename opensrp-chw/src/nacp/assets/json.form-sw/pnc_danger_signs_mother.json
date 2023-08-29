@@ -62,7 +62,7 @@
         "key": "danger_signs_present_mama",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "160939AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "danger_signs_present_mama",
         "type": "check_box",
         "label": "Je, mama ana dalili zozote za hatari?",
         "label_text_style": "normal",
@@ -76,85 +76,85 @@
             "key": "chk_fever",
             "text": "Homa",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fever"
           },
           {
             "key": "chk_bleeding_vaginally",
             "text": "Kutokwa na damu ukeni",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "150802AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_bleeding_vaginally"
           },
           {
             "key": "chk_server_headache",
             "text": "Maumivu makali ya kichwa",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "139081AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_server_headache"
           },
           {
             "key": "chk_convulsions",
             "text": "Degedege",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_convulsions"
           },
           {
             "key": "chk_difficulty_breathing",
             "text": "Kupumua kwa shida",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_difficulty_breathing"
           },
           {
             "key": "chk_severe_leg_pain",
             "text": "Maumivu makali ya mguu",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "114395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_leg_pain"
           },
           {
             "key": "chk_unusual_behaviour",
             "text": "Tabia isiyo ya kawaida (msongo wa mawazo, kuchanganyikiwa)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "152376AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_unusual_behaviour"
           },
           {
             "key": "chk_swelling of breast",
             "text": "Kuvimba kwa titi na chuchu",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "125212AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_swelling of breast"
           },
           {
             "key": "chk_severe_abdominal_pain",
             "text": "Maumivu makali ya tumbo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "165271AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_abdominal_pain"
           },
           {
             "key": "chk_vaginal_discharge",
             "text": "Kutokwa na majimaji yenye harufu mbaya kutoka ukeni",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "123395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_vaginal_discharge"
           },
           {
             "key": "chk_blurred_vision",
             "text": "Uoni hafifu",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "147104AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_blurred_vision"
           },
           {
             "key": "chk_loss_conscioueness",
             "text": "Kupoteza fahamu",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "135592AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_loss_conscioueness"
           },
           {
             "key": "chk_urination",
             "text": "Kukojoa kidogo au mkojo kuvuja kutoka ukeni",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "118982AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_urination"
           },
           {
             "key": "chk_none",
             "text": "Hakuna",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_none"
           }
         ],
         "v_required": {
@@ -199,21 +199,21 @@
         "key": "visited_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "visited_health_facility",
         "openmrs_entity_parent": "",
         "label": "Je ulishawahi kuhudhuria kituo cha kutolea afya kwa tatizo hili siku tatu zilizopita?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Ndio"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "Hapana"
           }
@@ -283,21 +283,21 @@
         "key": "mother_referral_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "mother_referral_health_facility",
         "openmrs_entity_parent": "",
         "label": "Kwa kuzingatia majadiliano yako na mteja, unadhani anahitaji kurudi kituo cha kutolea huduma za afya kwa ajili ya uchunguzi zaidi? (jaza wewe)",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Ndio"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "Hapana"
           }

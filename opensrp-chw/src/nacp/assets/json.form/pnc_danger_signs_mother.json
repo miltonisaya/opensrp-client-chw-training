@@ -62,7 +62,7 @@
         "key": "danger_signs_present_mama",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "160939AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "danger_signs_present_mama",
         "type": "check_box",
         "label": "Does the mother have any danger signs?",
         "label_text_style": "normal",
@@ -76,85 +76,85 @@
             "key": "chk_fever",
             "text": "Fever",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fever"
           },
           {
             "key": "chk_bleeding_vaginally",
             "text": "Bleeding vaginally",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "150802AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_bleeding_vaginally"
           },
           {
             "key": "chk_server_headache",
             "text": "Severe headache",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "139081AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_server_headache"
           },
           {
             "key": "chk_convulsions",
             "text": "Convulsions",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_convulsions"
           },
           {
             "key": "chk_difficulty_breathing",
             "text": "Difficulty breathing",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_difficulty_breathing"
           },
           {
             "key": "chk_severe_leg_pain",
             "text": "Severe leg pain",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "114395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_leg_pain"
           },
           {
             "key": "chk_unusual_behaviour",
             "text": "Unusual behaviour (stress, confusion)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "152376AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_unusual_behaviour"
           },
           {
             "key": "chk_swelling of breast",
             "text": "Swelling of the breast and nipple",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "125212AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_swelling of breast"
           },
           {
             "key": "chk_severe_abdominal_pain",
             "text": "Severe abdominal pain",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "165271AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_abdominal_pain"
           },
           {
             "key": "chk_vaginal_discharge",
             "text": "Discoloured or watery, liquid vaginal discharge with a bad smell",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "123395AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_vaginal_discharge"
           },
           {
             "key": "chk_blurred_vision",
             "text": "Blurred vision",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "147104AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_blurred_vision"
           },
           {
             "key": "chk_loss_conscioueness",
             "text": "Loss of consciousness",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "135592AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_loss_conscioueness"
           },
           {
             "key": "chk_urination",
             "text": "Urinate a little or urine leakage",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "118982AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_urination"
           },
           {
             "key": "chk_none",
             "text": "None",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_none"
           }
         ],
         "v_required": {
@@ -199,21 +199,21 @@
         "key": "visited_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "visited_health_facility",
         "openmrs_entity_parent": "",
         "label": "Have you, in the past 3 days,gone to a health facility for any of these identified conditions? ?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "No"
           }
@@ -283,21 +283,21 @@
         "key": "mother_referral_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "mother_referral_health_facility",
         "openmrs_entity_parent": "",
         "label": "Based on the discussion do you think the client needs to return to the facility for a further checkup?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "No"
           }
