@@ -14,8 +14,11 @@ import timber.log.Timber;
 
 public class PNCMalariaPreventionActionHelper extends HomeVisitActionHelper {
     private String malaria_protective_measures;
+
     private String malaria_protective_measures_keys;
+
     private String llin_2days;
+
     private String llin_condition;
 
     @Override
