@@ -62,7 +62,7 @@
         "key": "danger_signs_present_child",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "159860AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "danger_signs_present_child",
         "type": "check_box",
         "label": "Je, mtoto ana dalili zozote za hatari?",
         "label_text_style": "normal",
@@ -76,79 +76,79 @@
             "key": "chk_fever",
             "text": "Homa",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fever"
           },
           {
             "key": "chk_excessive_crying",
             "text": "Kulia kupita kiasi",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "110540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_excessive_crying"
           },
           {
             "key": "chk_fast_breathing",
             "text": "Kupumua kwa haraka",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "125061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fast_breathing"
           },
           {
             "key": "chk_difficult_breathing",
             "text": "Kupumua kwa shida",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_difficult_breathing"
           },
           {
             "key": "chk_unable_to_suck",
             "text": "Kutoweza kunyonya",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "159861AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_unable_to_suck"
           },
           {
             "key": "chk_umbilical_discharge",
             "text": "Kitovu kutokwa na damu/usaha",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "123843AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_umbilical_discharge"
           },
           {
             "key": "chk_convulsions",
             "text": "Degedege",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_convulsions"
           },
           {
             "key": "chk_skin_rashes",
             "text": "Vipele kwenye ngozi",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_skin_rashes"
           },
           {
             "key": "chk_pale",
             "text": "Kupauka au kuonekana na rangi ya manjano",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "136443AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_pale"
           },
           {
             "key": "chk_eye_discharge",
             "text": "Jicho kutokwa na majimaji ",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142246AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_eye_discharge"
           },
           {
             "key": "chk_severe_abdominal_pain",
             "text": "Maumivu makali ya tumbo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "165271AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_abdominal_pain"
           },
           {
             "key": "chk_lethargy",
             "text": "Ulegeevu",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "116334AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_lethargy"
           },
           {
             "key": "chk_none",
             "text": "Hakuna",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_none"
           }
         ],
         "v_required": {
@@ -192,21 +192,21 @@
         "key": "neonatal_visited_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "neonatal_visited_health_facility",
         "openmrs_entity_parent": "",
         "label": "Je, katika siku 3 zilizopita, umempeleka mtoto kwenye kituo cha afya kwa mojawapo ya hali hizi zilizotambuliwa?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Ndio"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "Hapana"
           }
@@ -244,7 +244,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "\nJadili na mama kuhusu ushauri alioupata kwa masharti haya alipompeleka Mtoto katika kituo cha Afya ikiwa ni pamoja na Ushauri Nasaha, matibabu wakati wa kufuatilia.",
+        "text": "Jadili na mama kuhusu ushauri alioupata kwa masharti haya alipompeleka Mtoto katika kituo cha Afya ikiwa ni pamoja na Ushauri Nasaha, matibabu wakati wa kufuatilia.",
         "toaster_type": "info",
         "relevance": {
           "rules-engine": {
@@ -260,7 +260,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "\nUnapaswa kumpeleka Mtoto kwenye kituo cha afya haraka iwezekanavyo na ndani ya saa 24 kwa uchunguzi zaidi.",
+        "text": "Unapaswa kumpeleka Mtoto kwenye kituo cha afya haraka iwezekanavyo na ndani ya saa 24 kwa uchunguzi zaidi.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
@@ -275,21 +275,21 @@
         "key": "neonatal_referral_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "neonatal_referral_health_facility",
         "openmrs_entity_parent": "",
         "label": "Kulingana na mazungumzo uliyofanya na Mama, unafikiri Mtoto anahitaji kurudi kwenye kituo kwa uchunguzi zaidi?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Hapana"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "Ndio"
           }

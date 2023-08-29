@@ -62,7 +62,7 @@
         "key": "danger_signs_present_child",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "159860AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "danger_signs_present_child",
         "type": "check_box",
         "label": "Does the baby have any danger signs?",
         "label_text_style": "normal",
@@ -76,79 +76,79 @@
             "key": "chk_fever",
             "text": "Fever",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "140238AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fever"
           },
           {
             "key": "chk_excessive_crying",
             "text": "Excessive crying",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "110540AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_excessive_crying"
           },
           {
             "key": "chk_fast_breathing",
             "text": "Fast breathing",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "125061AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_fast_breathing"
           },
           {
             "key": "chk_difficult_breathing",
             "text": "Difficulty breathing",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142373AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_difficult_breathing"
           },
           {
             "key": "chk_unable_to_suck",
             "text": "Unable to suck",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "159861AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_difficult_breathing"
           },
           {
             "key": "chk_umbilical_discharge",
             "text": "Umbilical blood / pus discharge",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "123843AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_umbilical_discharge"
           },
           {
             "key": "chk_convulsions",
             "text": "Convulsions",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "164483AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_convulsions"
           },
           {
             "key": "chk_skin_rashes",
             "text": "Skin rashes",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "512AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_skin_rashes"
           },
           {
             "key": "chk_pale",
             "text": "Pale or jaundiced",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "136443AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_pale"
           },
           {
             "key": "chk_eye_discharge",
             "text": "Eye discharge",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "142246AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_eye_discharge"
           },
           {
             "key": "chk_severe_abdominal_pain",
             "text": "Severe abdominal pain",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "165271AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_severe_abdominal_pain"
           },
           {
             "key": "chk_lethargy",
             "text": "General body Weakness",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "116334AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_lethargy"
           },
           {
             "key": "chk_none",
             "text": "None",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "1107AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+            "openmrs_entity_id": "chk_none"
           }
         ],
         "v_required": {
@@ -192,21 +192,21 @@
         "key": "neonatal_visited_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "neonatal_visited_health_facility",
         "openmrs_entity_parent": "",
         "label": "Have you, in the past 3 days, taken the baby to a health facility for any of these identified conditions?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "No"
           }
@@ -275,21 +275,21 @@
         "key": "neonatal_referral_health_facility",
         "type": "native_radio",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "114403AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "openmrs_entity_id": "neonatal_referral_health_facility",
         "openmrs_entity_parent": "",
         "label": "Based on the discussion do you think the Baby needs to return to the facility for a further checkup?",
         "options": [
           {
             "key": "yes",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1065AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "yes",
             "openmrs_entity_parent": "",
             "text": "Yes"
           },
           {
             "key": "no",
             "openmrs_entity": "",
-            "openmrs_entity_id": "1066AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+            "openmrs_entity_id": "no",
             "openmrs_entity_parent": "",
             "text": "No"
           }
@@ -312,7 +312,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Danger sign! \\nRefer immediately to health facility.",
+        "text": "Danger sign! Refer immediately to health facility.",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
