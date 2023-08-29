@@ -20,14 +20,14 @@ condition: "step1_malaria_protective_measures.contains('chk_none')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_LLIN_last_night
-description: LLIN last night
+name: step1_llin_2days
+description: llin 2days
 priority: 1
 condition: "step1_malaria_protective_measures.contains('chk_lasting_insecticide_net')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_LLIN_condition
+name: step1_llin_condition
 description: LLIN condition
 priority: 1
 condition: "step1_malaria_protective_measures.contains('chk_lasting_insecticide_net')"

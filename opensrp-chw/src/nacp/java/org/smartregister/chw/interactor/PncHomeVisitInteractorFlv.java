@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
 import org.smartregister.chw.actionhelper.ImmunizationActionHelper;
+import org.smartregister.chw.actionhelper.PNCMalariaPreventionActionHelper;
 import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
 import org.smartregister.chw.anc.contract.BaseAncHomeVisitContract;
@@ -606,56 +607,6 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
     }
 
     private void evaluateMalariaPrevention() throws Exception {
-        HomeVisitActionHelper malariaPreventionHelper = new HomeVisitActionHelper() {
-            private String malaria_protective_measures;
-
-            private String malaria_protective_measures_keys;
-
-            private String LLIN_last_night;
-
-            private String LLIN_condition;
-
-            @Override
-            public void onPayloadReceived(String jsonPayload) {
-                try {
-                    JSONObject jsonObject = new JSONObject(jsonPayload);
-                    malaria_protective_measures_keys = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "malaria_protective_measures");
-                    malaria_protective_measures = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "malaria_protective_measures");
-                    LLIN_last_night = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "LLIN_last_night");
-                    LLIN_condition = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "LLIN_condition");
-                } catch (JSONException e) {
-                    Timber.e(e);
-                }
-            }
-
-            @Override
-            public String evaluateSubTitle() {
-                StringBuilder stringBuilder = new StringBuilder();
-                String malaria_protective_measures_values = MessageFormat.format("{0}: {1}", context.getString(R.string.pnc_malaria_prevention), malaria_protective_measures) + "\n";
-                String LLIN_last_night_value = MessageFormat.format("{0}: {1}", context.getString(R.string.slept_under_net), StringUtils.capitalize(getTranslatedValue(LLIN_last_night.trim().toLowerCase()))) + "\n";
-                String LLIN_condition_value = MessageFormat.format("{0}: {1}", context.getString(R.string.net_condition), StringUtils.capitalize(getTranslatedValue(LLIN_condition.trim().toLowerCase())));
-                stringBuilder.append(malaria_protective_measures_values);
-                if (!LLIN_last_night.isEmpty()) {
-                    stringBuilder.append(LLIN_last_night_value);
-                }
-                if (!LLIN_condition.isEmpty()) {
-                    stringBuilder.append(LLIN_condition_value);
-                }
-                return stringBuilder.toString();
-            }
-
-            @Override
-            public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
-                if (StringUtils.isBlank(malaria_protective_measures_keys)) {
-                    return BaseAncHomeVisitAction.Status.PENDING;
-                } else if (malaria_protective_measures_keys.contains("chk_none") || LLIN_last_night.equalsIgnoreCase("No") || LLIN_condition.equalsIgnoreCase("Poor")) {
-                    return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
-                } else {
-                    return BaseAncHomeVisitAction.Status.COMPLETED;
-                }
-            }
-        };
-
         String visitID = pncVisitAlertRule().getVisitID();
 
         if (visitID.equalsIgnoreCase("1") || visitID.equalsIgnoreCase("8") || visitID.equalsIgnoreCase("35 - 41")) {
@@ -664,7 +615,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
                     .withDetails(details)
                     .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                     .withFormName(Constants.JSON_FORM.PNC_HOME_VISIT.getMalariaPrevention())
-                    .withHelper(malariaPreventionHelper)
+                    .withHelper(new PNCMalariaPreventionActionHelper())
                     .build();
             actionList.put(context.getString(R.string.pnc_malaria_prevention), action);
             otherActionTitles.add(context.getString(R.string.pnc_malaria_prevention));
