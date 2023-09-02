@@ -91,6 +91,7 @@ public class Constants extends CoreConstants {
         private static final String MOTHER_CHAMPION_FOLLOWUP_FORM = "mother_champion_followup";
         private static final String MOTHER_CHAMPION_SBCC_FORM = "mother_champion_sbcc_sessions";
         private static final String CBHS_REGISTRATION_FORM = "cbhs_registration";
+        private static final String CHILD_HV_NEWBORN_CARE_INTRO_FORM = "child_hv_newborn_introduction";
 
         public static String getCbhsRegistrationForm() {
             return CBHS_REGISTRATION_FORM;
@@ -110,6 +111,10 @@ public class Constants extends CoreConstants {
 
         public static String getMotherChampionSbccForm() {
             return MOTHER_CHAMPION_SBCC_FORM;
+        }
+
+        public static String getChildHvNewBornCareIntroForm() {
+            return CHILD_HV_NEWBORN_CARE_INTRO_FORM;
         }
     }
 
