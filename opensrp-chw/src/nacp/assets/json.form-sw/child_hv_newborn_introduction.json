@@ -49,6 +49,71 @@
   "step1": {
     "title": "Huduma muhimu ya Watoto Wachanga: Utangulizi",
     "fields": [
+      {
+        "key": "introduction_new_born_baby",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "label",
+        "label_text_style": "italic",
+        "text": "Sasa tutajadili kuhusu mambo muhimu ya kuzingatia baada ya mtoto kuzaliwa",
+        "text_color": "#000000"
+      },
+      {
+        "key": "premature_baby",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Je, mtoto ni njiti au ana uzito pungufu?",
+        "values": [
+          "Ndio",
+          "Hapana"
+        ],
+        "keys": [
+          "Yes",
+          "No"
+        ],
+        "openmrs_choice_ids": {
+          "Yes": "Yes",
+          "No": "No"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo moja"
+        }
+      },
+      {
+        "key": "no_premature_baby_bango_kitita_counseling",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "info",
+        "text": "Tafadhali fungua kitendea kazi namba 11 kwenye bango kitita ili kuendelea na mazungumzo",
+        "relevance": {
+          "step1:premature_baby": {
+            "type": "string",
+            "ex": "equalTo(., \"No\")"
+          }
+        }
+      },
+      {
+        "key": "yes_premature_baby_bango_kitita_counseling",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "problem",
+        "text": "Tafadhali fungua kitendea kazi namba 12 kwenye bango kitita ili kuendelea na mazungumzo",
+        "relevance": {
+          "step1:premature_baby": {
+            "type": "string",
+            "ex": "equalTo(., \"Yes\")"
+          }
+        }
+      }
     ]
   }
 }

@@ -49,6 +49,71 @@
   "step1": {
     "title": "Essential New Born Care: Introduction",
     "fields": [
+      {
+        "key": "introduction_new_born_baby",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "label",
+        "label_text_style": "italic",
+        "text": "It is important that we also discuss the important things to consider when caring for your new born baby.",
+        "text_color": "#000000"
+      },
+      {
+        "key": "premature_baby",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "select one",
+        "type": "spinner",
+        "hint": "Is the baby pre-mature or born underweight?",
+        "values": [
+          "Yes",
+          "No"
+        ],
+        "keys": [
+          "Yes",
+          "No"
+        ],
+        "openmrs_choice_ids": {
+          "Yes": "Yes",
+          "No": "No"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select one option"
+        }
+      },
+      {
+        "key": "no_premature_baby_bango_kitita_counseling",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "info",
+        "text": "Please refer to Topic 11 in Bango Kitita to continue with the discussion",
+        "relevance": {
+          "step1:premature_baby": {
+            "type": "string",
+            "ex": "equalTo(., \"No\")"
+          }
+        }
+      },
+      {
+        "key": "yes_premature_baby_bango_kitita_counseling",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "toaster_type": "problem",
+        "text": "Please refer to Topic 12 in Bango Kitita to continue with the discussion",
+        "relevance": {
+          "step1:premature_baby": {
+            "type": "string",
+            "ex": "equalTo(., \"Yes\")"
+          }
+        }
+      }
     ]
   }
 }
