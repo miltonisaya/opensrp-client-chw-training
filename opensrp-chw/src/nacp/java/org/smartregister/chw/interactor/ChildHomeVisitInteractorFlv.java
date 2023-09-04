@@ -8,22 +8,32 @@ import org.joda.time.format.DateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
+import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
+import org.smartregister.chw.anc.domain.Visit;
+import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
+import org.smartregister.chw.anc.util.VisitUtils;
+import org.smartregister.chw.core.domain.Person;
+import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.util.Constants;
 import org.smartregister.chw.util.JsonFormUtils;
 import org.smartregister.immunization.domain.ServiceWrapper;
 
 import java.text.MessageFormat;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import timber.log.Timber;
 
 public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractorFlv {
+    private final HashMap<String, Boolean> dangerSignsEvaluationResults = new HashMap<>();
 
     @Override
     protected void bindEvents(Map<String, ServiceWrapper> serviceWrapperMap) throws BaseAncHomeVisitAction.ValidationException {
         try {
+            evaluateDangerSignsBaby();
             evaluateImmunization();
             evaluateExclusiveBreastFeeding(serviceWrapperMap);
             evaluateVitaminA(serviceWrapperMap);
@@ -266,5 +276,58 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
                 .withHelper(new ObsIllnessBabyHelper())
                 .build();
         actionList.put(context.getString(R.string.anc_home_visit_observations_n_illnes), observation);
+    }
+
+    private void evaluateDangerSignsBaby() throws Exception {
+
+        dangerSignsEvaluationResults.put(MessageFormat.format(context.getString(R.string.pnc_danger_signs_baby), ""), false);
+        class ChildDangerSignsBabyHelper extends HomeVisitActionHelper {
+            private String danger_signs_present_child;
+
+            @Override
+            public void onPayloadReceived(String s) {
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    danger_signs_present_child = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "toddler_danger_signs_present");
+                    if (danger_signs_present_child.equalsIgnoreCase("none") || danger_signs_present_child.equalsIgnoreCase("hakuna"))
+                        dangerSignsEvaluationResults.put(context.getString(R.string.child_danger_signs_baby), true);
+                    else
+                        dangerSignsEvaluationResults.put(context.getString(R.string.child_danger_signs_baby), false);
+                } catch (JSONException e) {
+                    Timber.e(e);
+                }
+            }
+
+            @Override
+            public String evaluateSubTitle() {
+                return MessageFormat.format("{0}: {1}", context.getString(R.string.child_danger_signs_baby_task), danger_signs_present_child);
+            }
+
+            @Override
+            public String postProcess(String jsonPayload) {
+                return super.postProcess(jsonPayload);
+            }
+
+            @Override
+            public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
+                if (StringUtils.isBlank(danger_signs_present_child)) {
+                    return BaseAncHomeVisitAction.Status.PENDING;
+                }
+
+                if (StringUtils.isNotBlank(danger_signs_present_child)) {
+                    return BaseAncHomeVisitAction.Status.COMPLETED;
+                } else {
+                    return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
+                }
+            }
+        }
+
+        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, MessageFormat.format(context.getString(R.string.pnc_danger_signs_baby), ""))
+                .withOptional(false)
+                .withDetails(details)
+                .withFormName(org.smartregister.chw.util.Constants.JsonForm.getChildHomeVisitDangerSignForm())
+                .withHelper(new ChildDangerSignsBabyHelper())
+                .build();
+        actionList.put(context.getString(R.string.child_danger_signs_baby), action);
     }
 }
