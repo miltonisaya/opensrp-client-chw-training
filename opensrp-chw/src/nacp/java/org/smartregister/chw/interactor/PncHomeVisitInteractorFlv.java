@@ -14,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
+import org.smartregister.chw.actionhelper.ChildNewBornCareIntroductionActionHelper;
 import org.smartregister.chw.actionhelper.ImmunizationActionHelper;
 import org.smartregister.chw.actionhelper.PNCMalariaPreventionActionHelper;
 import org.smartregister.chw.anc.AncLibrary;
@@ -993,6 +994,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
                 .withBaseEntityID(baby.getBaseEntityID())
                 .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
                 .withFormName(Constants.JsonForm.getChildHvNewBornCareIntroForm())
+                .withHelper(new ChildNewBornCareIntroductionActionHelper())
                 .build();
         actionList.put(MessageFormat.format(context.getString(R.string.pnc_newborn_care_introduction), baby.getFullName()), action);
     }
