@@ -300,7 +300,6 @@
     <string name="fp_update_family_planning">Update Family planning Registration</string>
     <string name="pnc_observation_and_illness_mother">Observations &amp; illness - mother </string>
     <string name="pnc_observation_and_illness_baby">Observations &amp; illness - baby ({0}) </string>
-    <string name="pnc_newborn_care_introduction">Essential New Born Care: Introduction ({0})</string>
 
     <string name="pnc_counselling">Counselling</string>
     <string name="pnc_nutrition_status">Nutrition status - mother </string>

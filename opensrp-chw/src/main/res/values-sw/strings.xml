@@ -325,7 +325,6 @@
     <string name="fp_update_family_planning">Update usajili wa uzazi wa mpango</string>
     <string name="pnc_observation_and_illness_mother">Uchunguzi na ugonjwa - mama</string>
     <string name="pnc_observation_and_illness_baby">Uchunguzi na ugonjwa - mtoto ({0})</string>
-    <string name="pnc_newborn_care_introduction">Huduma muhimu ya Watoto Wachanga: Utangulizi ({0})</string>
 
     <string name="pnc_counselling">Ushauri</string>
     <string name="pnc_nutrition_status">Hali ya lishe-mama</string>
