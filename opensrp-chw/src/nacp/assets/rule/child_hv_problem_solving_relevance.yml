@@ -1,0 +1,7 @@
+---
+name: step1_child_playing_challenge_yes
+description: Child Playing Challenge
+priority: 1
+condition: "step1_child_playing_challenge =='yes'"
+actions:
+  - "isRelevant = true"

@@ -477,5 +477,7 @@
 
     <string name="last_appointment_date">Tarehe ya mwisho ya Miadi</string>
 
+    <string name="child_problem_solving">Kutatua Changamoto</string>
+    <string name="child_problem_solving_task">Changamtoto kwenye kucheza na kuwasiliana </string>
 
 </resources>
