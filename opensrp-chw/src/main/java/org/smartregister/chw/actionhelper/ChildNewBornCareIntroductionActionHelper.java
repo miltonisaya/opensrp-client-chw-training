@@ -11,7 +11,7 @@ import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
 import org.smartregister.chw.anc.util.JsonFormUtils;
-import org.smartregister.chw.core.utils.Utils;
+import org.smartregister.chw.util.PNCVisitUtil;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -28,7 +28,7 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
 
     private String jsonString;
 
-    public ChildNewBornCareIntroductionActionHelper(Context context,String visitId) {
+    public ChildNewBornCareIntroductionActionHelper(Context context, String visitId) {
         this.context = context;
         this.visitId = visitId;
     }
@@ -53,10 +53,10 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray fields = JsonFormUtils.fields(jsonObject);
-            JSONObject prematureBaby = JsonFormUtils.getFieldJSONObject(fields,"premature_baby");
-            if(this.visitId.equalsIgnoreCase("1")){
-                if(prematureBaby != null){
-                    prematureBaby.put("hidden","false");
+            JSONObject prematureBaby = JsonFormUtils.getFieldJSONObject(fields, "premature_baby");
+            if (this.visitId.equalsIgnoreCase("1")) {
+                if (prematureBaby != null) {
+                    prematureBaby.put("hidden", "false");
                 }
             }
             return jsonObject.toString();
@@ -69,7 +69,7 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
     @Override
     public String evaluateSubTitle() {
         if (!premature_baby.isEmpty()) {
-            return MessageFormat.format("{0}: {1}", context.getString(R.string.baby_premature), StringUtils.capitalize(getTranslatedValue(premature_baby.trim().toLowerCase())));
+            return MessageFormat.format("{0}: {1}", context.getString(R.string.baby_premature), StringUtils.capitalize(PNCVisitUtil.getTranslatedValue(context, premature_baby.trim().toLowerCase())));
         }
         return null;
     }
@@ -78,17 +78,10 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
     public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
         if (StringUtils.isBlank(premature_baby)) {
             return BaseAncHomeVisitAction.Status.PENDING;
-        }else if (premature_baby.equalsIgnoreCase("Yes")) {
+        } else if (premature_baby.equalsIgnoreCase("Yes")) {
             return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
         } else {
             return BaseAncHomeVisitAction.Status.COMPLETED;
         }
-    }
-
-    private String getTranslatedValue(String name) {
-        if (StringUtils.isBlank(name))
-            return name;
-        String val = "pnc_" + name;
-        return Utils.getStringResourceByName(val, context);
     }
 }
