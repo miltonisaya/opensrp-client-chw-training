@@ -53,10 +53,10 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray fields = JsonFormUtils.fields(jsonObject);
-            JSONObject prematureBaby = JsonFormUtils.getFieldJSONObject(fields, "premature_baby");
+            JSONObject visit_1 = JsonFormUtils.getFieldJSONObject(fields, "visit_1");
             if (this.visitId.equalsIgnoreCase("1")) {
-                if (prematureBaby != null) {
-                    prematureBaby.put("hidden", "false");
+                if (visit_1 != null) {
+                    visit_1.put("value", "true");
                 }
             }
             return jsonObject.toString();
@@ -77,7 +77,7 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
     @Override
     public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
         if (StringUtils.isBlank(premature_baby)) {
-            return BaseAncHomeVisitAction.Status.PENDING;
+            return BaseAncHomeVisitAction.Status.COMPLETED;
         } else if (premature_baby.equalsIgnoreCase("Yes")) {
             return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
         } else {

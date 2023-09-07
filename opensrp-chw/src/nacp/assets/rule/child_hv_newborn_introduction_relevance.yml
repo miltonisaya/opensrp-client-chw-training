@@ -1,0 +1,7 @@
+---
+name: step1_premature_baby
+description: Premature baby
+priority: 1
+condition: "step1_visit_1 == 'true'"
+actions:
+  - "isRelevant = true"
