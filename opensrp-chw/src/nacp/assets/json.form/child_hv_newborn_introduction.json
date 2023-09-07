@@ -67,6 +67,7 @@
         "openmrs_data_type": "select one",
         "type": "spinner",
         "hint": "Is the baby pre-mature or born underweight?",
+        "hidden": true,
         "values": [
           "Yes",
           "No"

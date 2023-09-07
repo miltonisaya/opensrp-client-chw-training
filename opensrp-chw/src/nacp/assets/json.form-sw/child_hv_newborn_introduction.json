@@ -67,6 +67,7 @@
         "openmrs_data_type": "select one",
         "type": "spinner",
         "hint": "Je, mtoto ni njiti au ana uzito pungufu?",
+        "hidden": true,
         "values": [
           "Ndio",
           "Hapana"
