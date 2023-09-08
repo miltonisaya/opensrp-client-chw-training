@@ -78,9 +78,9 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
 
     @Override
     public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
-        if (StringUtils.isBlank(premature_baby)) {
-            return BaseAncHomeVisitAction.Status.COMPLETED;
-        } else if (premature_baby.equalsIgnoreCase("Yes")) {
+        if (StringUtils.isBlank(premature_baby) && this.visitId.equalsIgnoreCase("1")) {
+            return BaseAncHomeVisitAction.Status.PENDING;
+        } else if (!StringUtils.isBlank(premature_baby) && premature_baby.equalsIgnoreCase("Yes")) {
             return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
         } else {
             return BaseAncHomeVisitAction.Status.COMPLETED;
