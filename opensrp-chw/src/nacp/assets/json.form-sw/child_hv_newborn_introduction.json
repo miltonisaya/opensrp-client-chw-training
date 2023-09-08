@@ -108,9 +108,10 @@
         "toaster_type": "info",
         "text": "Tafadhali fungua kitendea kazi namba 11 kwenye bango kitita ili kuendelea na mazungumzo",
         "relevance": {
-          "step1:premature_baby": {
-            "type": "string",
-            "ex": "equalTo(., \"No\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_newborn_introduction_relevance.yml"
+            }
           }
         }
       },

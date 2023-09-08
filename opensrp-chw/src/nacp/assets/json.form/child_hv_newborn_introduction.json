@@ -107,9 +107,10 @@
         "toaster_type": "info",
         "text": "Please refer to Topic 11 in Bango Kitita to continue with the discussion",
         "relevance": {
-          "step1:premature_baby": {
-            "type": "string",
-            "ex": "equalTo(., \"No\")"
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_newborn_introduction_relevance.yml"
+            }
           }
         }
       },

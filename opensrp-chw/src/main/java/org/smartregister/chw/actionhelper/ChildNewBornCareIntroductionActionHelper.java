@@ -54,9 +54,11 @@ public class ChildNewBornCareIntroductionActionHelper extends HomeVisitActionHel
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray fields = JsonFormUtils.fields(jsonObject);
             JSONObject visit_1 = JsonFormUtils.getFieldJSONObject(fields, "visit_1");
-            if (this.visitId.equalsIgnoreCase("1")) {
-                if (visit_1 != null) {
+            if(visit_1 != null){
+                if (this.visitId.equalsIgnoreCase("1")) {
                     visit_1.put("value", "true");
+                }else{
+                    visit_1.put("value", "false");
                 }
             }
             return jsonObject.toString();
