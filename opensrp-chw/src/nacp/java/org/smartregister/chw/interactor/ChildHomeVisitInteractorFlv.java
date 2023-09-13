@@ -280,7 +280,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
 
     private void evaluateDangerSignsBaby() throws Exception {
 
-        dangerSignsEvaluationResults.put(MessageFormat.format(context.getString(R.string.pnc_danger_signs_baby), ""), false);
+        dangerSignsEvaluationResults.put(MessageFormat.format(context.getString(R.string.child_danger_signs_baby), ""), false);
         class ChildDangerSignsBabyHelper extends HomeVisitActionHelper {
             private String danger_signs_present_child;
 
@@ -322,7 +322,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
             }
         }
 
-        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, MessageFormat.format(context.getString(R.string.pnc_danger_signs_baby), ""))
+        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, MessageFormat.format(context.getString(R.string.child_danger_signs_baby), ""))
                 .withOptional(false)
                 .withDetails(details)
                 .withFormName(org.smartregister.chw.util.Constants.JsonForm.getChildHomeVisitDangerSignForm())
