@@ -286,7 +286,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
             public void onPayloadReceived(String s) {
                 try {
                     JSONObject jsonObject = new JSONObject(s);
-                    child_playing_challenge = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "child_playing_challenge");
+                    child_playing_challenge = JsonFormUtils.getValue(jsonObject, "child_playing_challenge");
                     if (child_playing_challenge.equalsIgnoreCase("hapana") || child_playing_challenge.equalsIgnoreCase("no"))
                         problemSolingEvaluationResults.put(context.getString(R.string.child_problem_solving), true);
                     else
@@ -298,7 +298,18 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
 
             @Override
             public String evaluateSubTitle() {
+                child_playing_challenge = getYesNoTranslation(child_playing_challenge);
                 return MessageFormat.format("{0}: {1}", context.getString(R.string.child_problem_solving_task), child_playing_challenge);
+            }
+
+            public String getYesNoTranslation(String subtitleText) {
+                if ("yes".equals(subtitleText)) {
+                    return context.getString(R.string.yes);
+                } else if ("no".equals(subtitleText)) {
+                    return context.getString(R.string.no);
+                } else {
+                    return subtitleText;
+                }
             }
 
             @Override
