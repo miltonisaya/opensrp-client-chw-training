@@ -78,12 +78,44 @@
         }
       },
       {
-        "key": "child_playing_challenge_yes",
+        "key": "child_playing_challenge_yes_1",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "",
         "type": "toaster_notes",
-        "text": "Many people may face challenges when it comes to playing and communicating with their child to stimulate child development. \n\nWhat challenges?\nCHW information: Listen to the caregivers challenges and help them identify a key person who can share their challenges and help them with their child.\nEncourage the caregiver and other family members to support each other in playing and communicating with the child.\nBuild their confidence by demonstrating their ability to carry out a simple activity.\n\nCHW information: Note: Please be careful when leaving the baby with other caregivers to avoid any potential disasters",
+        "text": "Many people may face challenges when it comes to playing and communicating with their child to stimulate child development\".",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_problem_solving_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "child_playing_challenge_yes_2",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "What challenges?\nCHW information: Listen to the caregivers challenges and help them identify a key person who can share their challenges and help them with their child.\nEncourage the caregiver and other family members to support each other in playing and communicating with the child.\nBuild their confidence by demonstrating their ability to carry out a simple activity.",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_problem_solving_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "child_playing_challenge_yes_3",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "CHW information: Note: Please be careful when leaving the baby with other caregivers to avoid any potential disasters",
         "toaster_type": "info",
         "relevance": {
           "rules-engine": {
