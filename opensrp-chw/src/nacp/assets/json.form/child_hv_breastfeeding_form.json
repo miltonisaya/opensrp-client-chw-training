@@ -284,6 +284,13 @@
             "openmrs_entity_id": "chk_more_than_five_days"
           }
         ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        },
         "v_required": {
           "value": "true",
           "err": "Please pick at least one"
@@ -298,16 +305,26 @@
         "text": "Discuss with the mother why she is not breastfeeding the baby more than five times. Advise her and problem solve with her.",
         "toaster_type": "info",
         "relevance": {
-          "step1:times_child_breastfeeds": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "chk_twice_a_day",
-                  "chk_three_a_day",
-                  "chk_four_a_day"
-                ]
-              }
-            ]
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "breastfeeding_position_counselling_intro",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Observe how the mother breastfeeds her baby. Educate the mother about the proper positioning and attachment of the baby during breastfeeding. Refer to pages numbers 16 and 17 of Bango Kitita.",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
           }
         }
       },
@@ -317,7 +334,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "breastfeeding_position_counselling",
         "openmrs_entity_parent": "",
-        "label": "Observe how the mother breastfeeds her baby. Educate the mother about the proper positioning and attachment of the baby during breastfeeding. Refer to pages numbers 16 and 17 of Bango Kitita.\n\nIs the positioning and attachment ok? This means the chin is touching the breast, mouth wide open, lower lip turned outward, and more areola visible above than below the mouth.",
+        "label": "Is the positioning and attachment ok? This means the chin is touching the breast, mouth wide open, lower lip turned outward, and more areola visible above than below the mouth.",
         "options": [
           {
             "key": "yes",
