@@ -293,7 +293,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
         ExclusiveBreastFeedingAction helper = new ExclusiveBreastFeedingAction(context, alert);
         JSONObject jsonObject = getFormJson(org.smartregister.chw.util.Constants.JsonForm.getChildHvBreastfeedingForm(), memberObject.getBaseEntityId());
 
-        Map<String, List<VisitDetail>> details = getDetails(Constants.EventType.EXCLUSIVE_BREASTFEEDING);
+        Map<String, List<VisitDetail>> details = getDetails(Constants.EventType.CHILD_HOME_VISIT);
 
         if (details != null && details.size() > 0) {
             org.smartregister.chw.anc.util.JsonFormUtils.populateForm(jsonObject, details);
@@ -303,16 +303,12 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
                 .withHelper(helper)
                 .withDetails(details)
                 .withOptional(false)
-                .withBaseEntityID(memberObject.getBaseEntityId())
-                .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
+                .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.COMBINED)
                 .withPayloadType(BaseAncHomeVisitAction.PayloadType.SERVICE)
-                .withPayloadDetails(MessageFormat.format("Exclusive_breastfeeding{0}", serviceIteration))
-                .withDestinationFragment(BaseAncHomeVisitFragment.getInstance(view, null, jsonObject, details, serviceIteration))
+                .withFormName(org.smartregister.chw.util.Constants.JsonForm.getChildHvBreastfeedingForm())
                 .withScheduleStatus(!isOverdue ? BaseAncHomeVisitAction.ScheduleStatus.DUE : BaseAncHomeVisitAction.ScheduleStatus.OVERDUE)
                 .withSubtitle(MessageFormat.format("{0}{1}", dueState, DateTimeFormat.forPattern("dd MMM yyyy").print(new DateTime(serviceWrapper.getVaccineDate()))))
                 .build();
-
-        // don't show if its after now
-        if (!serviceWrapper.getVaccineDate().isAfterNow()) actionList.put(title, action);
+        actionList.put(title, action);
     }
 }
