@@ -1,23 +1,28 @@
 package org.smartregister.chw.interactor;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
+import org.smartregister.chw.actionhelper.ExclusiveBreastFeedingAction;
 import org.smartregister.chw.anc.AncLibrary;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
 import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
+import org.smartregister.chw.anc.fragment.BaseAncHomeVisitFragment;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
 import org.smartregister.chw.anc.util.VisitUtils;
 import org.smartregister.chw.core.domain.Person;
 import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.util.Constants;
 import org.smartregister.chw.util.JsonFormUtils;
+import org.smartregister.domain.Alert;
 import org.smartregister.immunization.domain.ServiceWrapper;
 
 import java.text.MessageFormat;
@@ -33,7 +38,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
     @Override
     protected void bindEvents(Map<String, ServiceWrapper> serviceWrapperMap) throws BaseAncHomeVisitAction.ValidationException {
         try {
-            evaluateDangerSignsBaby();
+            evaluateToddlerDanger(serviceWrapperMap);
             evaluateImmunization();
             evaluateExclusiveBreastFeeding(serviceWrapperMap);
             evaluateVitaminA(serviceWrapperMap);
@@ -278,11 +283,27 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
         actionList.put(context.getString(R.string.anc_home_visit_observations_n_illnes), observation);
     }
 
-    private void evaluateDangerSignsBaby() throws Exception {
+    private void evaluateToddlerDanger(Map<String, ServiceWrapper> serviceWrapperMap) throws Exception {
 
         dangerSignsEvaluationResults.put(MessageFormat.format(context.getString(R.string.child_danger_signs_baby), ""), false);
-        class ChildDangerSignsBabyHelper extends HomeVisitActionHelper {
+        class ToddlerDangerSignsBabyHelper extends HomeVisitActionHelper {
             private String danger_signs_present_child;
+            private final Context context;
+            private final Alert alert;
+
+            public ToddlerDangerSignsBabyHelper(Context context, Alert alert){
+                this.context = context;
+                this.alert = alert;
+            }
+
+            @Override
+            public BaseAncHomeVisitAction.ScheduleStatus getPreProcessedStatus() {
+                return isOverDue() ? BaseAncHomeVisitAction.ScheduleStatus.OVERDUE : BaseAncHomeVisitAction.ScheduleStatus.DUE;
+            }
+
+            private boolean isOverDue() {
+                return new LocalDate().isAfter(new LocalDate(alert.startDate()).plusDays(14));
+            }
 
             @Override
             public void onPayloadReceived(String s) {
@@ -322,11 +343,30 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
             }
         }
 
-        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, MessageFormat.format(context.getString(R.string.child_danger_signs_baby), ""))
-                .withOptional(false)
+        ServiceWrapper serviceWrapper = serviceWrapperMap.get("Toddler danger sign");
+        if (serviceWrapper == null) return;
+
+        Alert alert = serviceWrapper.getAlert();
+        if (alert == null || new LocalDate().isBefore(new LocalDate(alert.startDate()))) return;
+
+        String title = context.getString(R.string.child_danger_signs_baby);
+
+        // alert if overdue after 14 days
+        boolean isOverdue = new LocalDate().isAfter(new LocalDate(alert.startDate()).plusDays(14));
+        String dueState = !isOverdue ? context.getString(R.string.due) : context.getString(R.string.overdue);
+
+        ToddlerDangerSignsBabyHelper helper = new ToddlerDangerSignsBabyHelper(context, alert);
+        Map<String, List<VisitDetail>> details = getDetails(Constants.EventType.CHILD_HOME_VISIT);
+
+        BaseAncHomeVisitAction action = getBuilder(title)
+                .withHelper(helper)
                 .withDetails(details)
+                .withOptional(false)
+                .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.COMBINED)
+                .withPayloadType(BaseAncHomeVisitAction.PayloadType.SERVICE)
                 .withFormName(org.smartregister.chw.util.Constants.JsonForm.getChildHomeVisitDangerSignForm())
-                .withHelper(new ChildDangerSignsBabyHelper())
+                .withScheduleStatus(!isOverdue ? BaseAncHomeVisitAction.ScheduleStatus.DUE : BaseAncHomeVisitAction.ScheduleStatus.OVERDUE)
+                .withSubtitle(MessageFormat.format("{0}{1}", dueState, DateTimeFormat.forPattern("dd MMM yyyy").print(new DateTime(serviceWrapper.getVaccineDate()))))
                 .build();
         actionList.put(context.getString(R.string.child_danger_signs_baby), action);
     }
