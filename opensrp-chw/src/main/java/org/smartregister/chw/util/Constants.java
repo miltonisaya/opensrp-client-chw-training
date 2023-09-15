@@ -99,6 +99,8 @@ public class Constants extends CoreConstants {
         private static final String ICCM_PNEUMONIA = "iccm_pneumonia";
         private static final String ICCM_DIARRHEA = "iccm_diarrhea";
 
+        public static final String SKIN_TO_SKIN = "child_skin_to_skin";
+
         public static String getCbhsRegistrationForm() {
             return CBHS_REGISTRATION_FORM;
         }
@@ -134,6 +136,7 @@ public class Constants extends CoreConstants {
         public static String getIccmDiarrhea() {
             return ICCM_DIARRHEA;
         }
+        public static String getSkinToSkin() { return SKIN_TO_SKIN; }
 
     }
 
