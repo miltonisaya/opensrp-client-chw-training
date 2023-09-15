@@ -81,13 +81,6 @@
             "text": "No"
           }
         ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "child_hv_breastfeeding_relevance.yml"
-            }
-          }
-        },
         "v_required": {
           "value": "true",
           "err": "Please select one"
@@ -100,7 +93,14 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "How is it going?\nWhat positions are you using?\nHow frequently do you breastfeed?\nHow long will the baby feed at one time?\n\nAllow mother to explain her experience breastfeeding.",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "breastfeed_current_no",
@@ -109,7 +109,14 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Advice the mother on the importance of breastfeeding the child (Refer to Bango Kitita, Breast feeding module)",
-        "toaster_type": "warning"
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "breastfeed_challenge_note",
@@ -201,7 +208,18 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Praise the mother/father or caregiver for ensuring that the baby is being fed only breast milk",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "step1:other_food_child_feeds": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chk_none"
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "key": "child_not_exclusive_breastfeeds",
@@ -216,19 +234,14 @@
             "ex-checkbox": [
               {
                 "or": [
-                  "chk_fever",
-                  "chk_bleeding_vaginally",
-                  "chk_server_headache",
-                  "chk_convulsions",
-                  "chk_difficulty_breathing",
-                  "chk_severe_leg_pain",
-                  "chk_unusual_behaviour",
-                  "chk_swelling of breast",
-                  "chk_severe_abdominal_pain",
-                  "chk_vaginal_discharge",
-                  "chk_blurred_vision",
-                  "chk_loss_conscioueness",
-                  "chk_urination"
+                  "chk_infant_formula",
+                  "chk_plain_water",
+                  "chk_juice",
+                  "chk_clear_broth_soup",
+                  "chk_milk_from_animals",
+                  "chk_soft_food",
+                  "chk_porridge",
+                  "chk_something_else"
                 ]
               }
             ]
@@ -240,7 +253,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "times_child_breastfeeds",
-        "type": "check_box",
+        "type": "native_radio",
         "label": "How often do you breastfeed your baby, including night and day time?",
         "label_text_style": "normal",
         "text_color": "#C0C0C0",
@@ -283,7 +296,20 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Discuss with the mother why she is not breastfeeding the baby more than five times. Advise her and problem solve with her.",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "step1:times_child_breastfeeds": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chk_twice_a_day",
+                  "chk_three_a_day",
+                  "chk_four_a_day"
+                ]
+              }
+            ]
+          }
+        }
       },
       {
         "key": "breastfeeding_position_counselling",
@@ -327,7 +353,14 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Congratulate mother for breastfeeding in a right position",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "breastfeeding_position_demo",
@@ -336,7 +369,14 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Now you are at the stage of coaching the mother how she should position her child toward effective breast feeding. This activity may require you to sometimes needs your direct intervention and perhaps you may need to touch the child.\n\nReminder:Please stop direct intervention and avoid touching the child. Instead, please direct the mother what to do while you observe and provide guidance.\n\nHelp the mother to:\n\nSit or lie comfortably.\n\nSupport the baby's whole body, not just the neck and shoulders. Ensure baby's head and body are in a straight line.\n\nHave the baby face the breast. The baby's nose is opposite her nipple.\n\nHold the breast and touch the baby's cheek with the nipple, so baby turns and opens mouth.\n\nFix the baby's mouth on the nipple. Make sure baby is in a comfortable position to feed.\n\nTouch the baby's lips with her nipple.",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "child_suckling_well",
@@ -380,7 +420,52 @@
         "openmrs_entity_id": "",
         "type": "toaster_notes",
         "text": "Help the mother to improve positioning and attachment.\n\nIf baby is too sleepy to feed, try to wake him by rubbing body, arms, or legs.\n\nIf baby is still not feeding from the breast after one hour, squeeze the first, yellow fluid from the breast into a clean cup or spoon. Feed this to baby often and in small amounts, making sure baby can swallow it.\n\nWait until the baby's mouth is opened wide\n\nMove the baby quickly onto her breast, aiming the infant's lower lip will below the nipple.\n\nIf breast engorgement, express a small amount of breast milk before starting breastfeeding to soften nipple area so that it is easier for the baby to attach.",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "child_suckling_demo_two",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "type": "toaster_notes",
+        "text": "Help the mother to improve positioning and attachment.\n\nIf baby is too sleepy to feed, try to wake him by rubbing body, arms, or legs.\n\n\n\nWait until the baby's mouth is opened wide\n\nMove the baby quickly onto her breast, aiming the infant's lower lip will below the nipple.\n\nIf breast engorgement, express a small amount of breast milk before starting breastfeeding to soften nipple area so that it is easier for the baby to attach.",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "exclusive_breast_feeding",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "exclusive_breast_feeding",
+        "type": "spinner",
+        "image": "ic_form_bf",
+        "hint": "Has the child been exclusively breastfeeding only?",
+        "values": [
+          "Yes",
+          "No"
+        ],
+        "keys": [
+          "Yes",
+          "No"
+        ],
+        "openmrs_choice_ids": {
+          "Yes": "Yes",
+          "No": "No"
+        }
       }
     ]
   }
