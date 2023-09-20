@@ -479,4 +479,11 @@
     <string name="visit_in_progress">%s visit still in progress</string>
 
     <string name="iccm_referral">iCCM Referral</string>
+
+    <string name="palm_pallor_green">Green</string>
+    <string name="palm_pallor_yellow">Yellow</string>
+    <string name="palm_pallor_red">Red</string>
+
+    <string name="malnutrition_screening_subtitle">MUAC: %s Anemia: %s</string>
+    <string name="malnutrition_screening">Malnutrition/Anemia screening</string>
 </resources>
