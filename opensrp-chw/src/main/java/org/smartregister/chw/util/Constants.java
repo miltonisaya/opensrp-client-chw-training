@@ -98,6 +98,7 @@ public class Constants extends CoreConstants {
         private static final String ICCM_MALARIA = "iccm_malaria";
         private static final String ICCM_PNEUMONIA = "iccm_pneumonia";
         private static final String ICCM_DIARRHEA = "iccm_diarrhea";
+        private static final String CHILD_HV_MALNUTRITION_SCREENING = "child_hv_malnutrition_screening";
 
         public static String getCbhsRegistrationForm() {
             return CBHS_REGISTRATION_FORM;
@@ -135,6 +136,9 @@ public class Constants extends CoreConstants {
             return ICCM_DIARRHEA;
         }
 
+        public static String getChildHvMalnutritionScreening() {
+            return CHILD_HV_MALNUTRITION_SCREENING;
+        }
     }
 
     public static final class Events {
