@@ -164,8 +164,9 @@
 
     <string name="pnc_yes">Ndio</string>
     <string name="pnc_no">Hapana</string>
-    <string name="pnc_okay">Nzuri</string>
-    <string name="pnc_bad">Mbaya (Chandarula kimechanika)</string>
+    <string name="pnc_good">Nzuri</string>
+    <string name="pnc_fair">Kawaida</string>
+    <string name="pnc_poor">Mbaya</string>
 
     <string name="pnc_normal">Kawaida</string>
     <string name="pnc_moderate">Wastani</string>
@@ -479,5 +480,9 @@
 
     <string name="child_problem_solving">Kutatua Changamoto</string>
     <string name="child_problem_solving_task">Changamtoto kwenye kucheza na kuwasiliana </string>
+
+    <!--    ICCM Visit History-->
+    <string name="iccm_visit">Matembeleo ya huduma za iCCM</string>
+
 
 </resources>
