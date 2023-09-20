@@ -9,7 +9,6 @@ import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
 import org.smartregister.chw.util.JsonFormUtils;
 
 import java.text.MessageFormat;
-import java.util.HashMap;
 
 import timber.log.Timber;
 
