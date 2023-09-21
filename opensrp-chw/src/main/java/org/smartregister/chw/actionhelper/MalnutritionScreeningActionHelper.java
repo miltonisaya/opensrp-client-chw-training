@@ -1,4 +1,5 @@
 package org.smartregister.chw.actionhelper;
+
 import android.content.Context;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,23 +12,34 @@ import org.smartregister.immunization.domain.ServiceWrapper;
 import java.util.List;
 import java.util.Map;
 import timber.log.Timber;
+
 public class MalnutritionScreeningActionHelper extends HomeVisitActionHelper {
     String growthMonitoringSelectedKey = "";
+
     String growthMonitoringSelectedValue = "";
+
     String palmPallorValue = "";
+
     String palmPallorKey= "";
+
     String childGrowthMuacKey = "";
+
     String childGrowthMuacValue = "";
+
     String jsonString = "";
+
     ServiceWrapper serviceWrapper;
+
     public MalnutritionScreeningActionHelper(ServiceWrapper serviceWrapper){
         this.serviceWrapper = serviceWrapper;
     }
+
     @Override
     public void onJsonFormLoaded(String jsonString, Context context, Map<String, List<VisitDetail>> details) {
         this.jsonString = jsonString;
         this.context = context;
     }
+
     @Override
     public void onPayloadReceived(String jsonString) {
         try {
@@ -40,6 +52,7 @@ public class MalnutritionScreeningActionHelper extends HomeVisitActionHelper {
             Timber.e(e);
         }
     }
+
     @Override
     public String evaluateSubTitle() {
         if (growthMonitoringSelectedKey.isEmpty()) return "";
@@ -66,6 +79,7 @@ public class MalnutritionScreeningActionHelper extends HomeVisitActionHelper {
 
         return getContext().getString(R.string.malnutrition_screening_subtitle, childGrowthMuacValue, palmPallorValue);
     }
+
     @Override
     public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
 
