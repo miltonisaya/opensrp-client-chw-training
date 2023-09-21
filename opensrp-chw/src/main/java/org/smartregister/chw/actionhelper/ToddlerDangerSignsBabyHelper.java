@@ -19,7 +19,9 @@ import timber.log.Timber;
 
 public class ToddlerDangerSignsBabyHelper extends HomeVisitActionHelper {
     private String danger_signs_present_child;
+
     private final Context context;
+
     private final Alert alert;
 
     public ToddlerDangerSignsBabyHelper(Context context, Alert alert){
