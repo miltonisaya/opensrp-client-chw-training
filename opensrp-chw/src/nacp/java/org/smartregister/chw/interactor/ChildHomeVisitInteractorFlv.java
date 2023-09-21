@@ -1,6 +1,7 @@
 package org.smartregister.chw.interactor;
 
-import android.content.Context;
+import static org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue;
+
 import android.text.TextUtils;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,30 +11,22 @@ import org.joda.time.format.DateTimeFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
-import org.smartregister.chw.actionhelper.ExclusiveBreastFeedingAction;
-import org.smartregister.chw.anc.AncLibrary;
+import org.smartregister.chw.actionhelper.ToddlerDangerSignsBabyHelper;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
-import org.smartregister.chw.anc.domain.Visit;
 import org.smartregister.chw.anc.domain.VisitDetail;
-import org.smartregister.chw.anc.fragment.BaseAncHomeVisitFragment;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
-import org.smartregister.chw.anc.util.VisitUtils;
-import org.smartregister.chw.core.domain.Person;
-import org.smartregister.chw.core.utils.CoreConstants;
 import org.smartregister.chw.util.Constants;
 import org.smartregister.chw.util.JsonFormUtils;
 import org.smartregister.domain.Alert;
 import org.smartregister.immunization.domain.ServiceWrapper;
 
 import java.text.MessageFormat;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import timber.log.Timber;
 
 public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractorFlv {
-    private final HashMap<String, Boolean> dangerSignsEvaluationResults = new HashMap<>();
 
     @Override
     protected void bindEvents(Map<String, ServiceWrapper> serviceWrapperMap) throws BaseAncHomeVisitAction.ValidationException {
@@ -146,7 +139,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
             public void onPayloadReceived(String jsonPayload) {
                 try {
                     JSONObject jsonObject = new JSONObject(jsonPayload);
-                    couselling_child = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "pnc_counselling");
+                    couselling_child = getCheckBoxValue(jsonObject, "pnc_counselling");
                 } catch (JSONException e) {
                     Timber.e(e);
                 }
@@ -284,65 +277,6 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
     }
 
     private void evaluateToddlerDanger(Map<String, ServiceWrapper> serviceWrapperMap) throws Exception {
-
-        dangerSignsEvaluationResults.put(MessageFormat.format(context.getString(R.string.child_danger_signs_baby), ""), false);
-        class ToddlerDangerSignsBabyHelper extends HomeVisitActionHelper {
-            private String danger_signs_present_child;
-            private final Context context;
-            private final Alert alert;
-
-            public ToddlerDangerSignsBabyHelper(Context context, Alert alert){
-                this.context = context;
-                this.alert = alert;
-            }
-
-            @Override
-            public BaseAncHomeVisitAction.ScheduleStatus getPreProcessedStatus() {
-                return isOverDue() ? BaseAncHomeVisitAction.ScheduleStatus.OVERDUE : BaseAncHomeVisitAction.ScheduleStatus.DUE;
-            }
-
-            private boolean isOverDue() {
-                return new LocalDate().isAfter(new LocalDate(alert.startDate()).plusDays(14));
-            }
-
-            @Override
-            public void onPayloadReceived(String s) {
-                try {
-                    JSONObject jsonObject = new JSONObject(s);
-                    danger_signs_present_child = org.smartregister.chw.util.JsonFormUtils.getCheckBoxValue(jsonObject, "toddler_danger_signs_present");
-                    if (danger_signs_present_child.equalsIgnoreCase("none") || danger_signs_present_child.equalsIgnoreCase("hakuna"))
-                        dangerSignsEvaluationResults.put(context.getString(R.string.child_danger_signs_baby), true);
-                    else
-                        dangerSignsEvaluationResults.put(context.getString(R.string.child_danger_signs_baby), false);
-                } catch (JSONException e) {
-                    Timber.e(e);
-                }
-            }
-
-            @Override
-            public String evaluateSubTitle() {
-                return MessageFormat.format("{0}: {1}", context.getString(R.string.child_danger_signs_baby_task), danger_signs_present_child);
-            }
-
-            @Override
-            public String postProcess(String jsonPayload) {
-                return super.postProcess(jsonPayload);
-            }
-
-            @Override
-            public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
-                if (StringUtils.isBlank(danger_signs_present_child)) {
-                    return BaseAncHomeVisitAction.Status.PENDING;
-                }
-
-                if (StringUtils.isNotBlank(danger_signs_present_child)) {
-                    return BaseAncHomeVisitAction.Status.COMPLETED;
-                } else {
-                    return BaseAncHomeVisitAction.Status.PARTIALLY_COMPLETED;
-                }
-            }
-        }
-
         ServiceWrapper serviceWrapper = serviceWrapperMap.get("Toddler danger sign");
         if (serviceWrapper == null) return;
 
