@@ -529,4 +529,7 @@
 
     <string name="last_appointment_date">Last Appointment date</string>
 
+    <string name="child_problem_solving">Problem Solving</string>
+    <string name="child_problem_solving_task">Playing and Communicating challenge</string>
+
 </resources>
