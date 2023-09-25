@@ -123,6 +123,7 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
             evaluateExclusiveBreastFeeding(baby);
             evaluateNutritionStatusBaby(baby);
             evaluateObsIllnessBaby(baby);
+            evaluateSkinToSkin(baby);
         }
     }
 
@@ -643,6 +644,59 @@ public class PncHomeVisitInteractorFlv extends DefaultPncHomeVisitInteractorFlv 
                     .build();
             actionList.put(MessageFormat.format(context.getString(R.string.pnc_nutrition_status_baby_name), baby.getFullName()), action);
             otherActionTitles.add(MessageFormat.format(context.getString(R.string.pnc_nutrition_status_baby_name), baby.getFullName()));
+        }
+    }
+
+    private void evaluateSkinToSkin(Person baby) throws Exception {
+        String visitID = pncVisitAlertRule().getVisitID();
+        HomeVisitActionHelper actionHelper = new HomeVisitActionHelper() {
+
+            private String skin_to_skin;
+
+            @Override
+            public void onPayloadReceived(String jsonString) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(jsonString);
+                    skin_to_skin = org.smartregister.chw.util.JsonFormUtils.getValue(jsonObject, "skin_to_skin_counselling");
+                } catch (JSONException e) {
+                    Timber.e(e);
+                }
+            }
+
+            @Override
+            public String evaluateSubTitle() {
+                return null;
+            }
+
+            @Override
+            public BaseAncHomeVisitAction.Status evaluateStatusOnPayload() {
+                if (StringUtils.isNotBlank(skin_to_skin)) {
+                    return BaseAncHomeVisitAction.Status.COMPLETED;
+                } else {
+                    return BaseAncHomeVisitAction.Status.PENDING;
+                }
+            }
+        };
+
+        if (visitID.equalsIgnoreCase("1") || visitID.equalsIgnoreCase("3") || visitID.equalsIgnoreCase("8")) {
+            Map<String, List<VisitDetail>> details = null;
+            if (getAgeInDays(baby.getDob()) <= DURATION_OF_CHILD_IN_PNC) {
+                Visit lastVisit = getVisitRepository().getLatestVisit(baby.getBaseEntityID(), "Skin to skin counselling");
+                if (lastVisit != null && editMode) {
+                    details = VisitUtils.getVisitGroups(AncLibrary.getInstance().visitDetailsRepository().getVisits(lastVisit.getVisitId()));
+                }
+            }
+            BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.pnc_skin_to_skin))
+                    .withOptional(false)
+                    .withDetails(details)
+                    .withBaseEntityID(baby.getBaseEntityID())
+                    .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
+                    .withFormName(Constants.JsonForm.getSkinToSkin())
+                    .withHelper(actionHelper)
+                    .build();
+
+            actionList.put(context.getString(R.string.pnc_skin_to_skin), action);
         }
     }
 
