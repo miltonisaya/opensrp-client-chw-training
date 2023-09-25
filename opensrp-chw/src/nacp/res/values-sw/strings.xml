@@ -173,6 +173,9 @@
     <string name="pnc_severe">Mbaya</string>
     <string name="pnc_hygiene_safety_counselling_title">Usafi wa mazingira</string>
 
+    <string name="pnc_newborn_care_introduction">Huduma muhimu ya Watoto Wachanga: Utangulizi ({0})</string>
+    <string name="baby_premature">Mtoto ni njiti au ana uzito pungufu</string>
+
     <string name="visits_history_profile_title">Historia ya Matembeleo</string>
     <string name="view_visits_history">Angalia Historia ya Matembeleo</string>
     <string name="visits_history">Historia ya Matembeleo</string>
