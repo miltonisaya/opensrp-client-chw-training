@@ -173,6 +173,7 @@
     <string name="pnc_normal">Normal</string>
     <string name="pnc_moderate">Moderate</string>
     <string name="pnc_severe">Severe</string>
+    <string name="pnc_hygiene_safety_counselling_title">Environmental Hygiene</string>
 
     <string name="pnc_newborn_care_introduction">Essential New Born Care: Introduction ({0})</string>
     <string name="baby_premature">Baby premature/underweight</string>
