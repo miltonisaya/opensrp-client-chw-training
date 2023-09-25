@@ -101,6 +101,8 @@ public class Constants extends CoreConstants {
         private static final String ICCM_DIARRHEA = "iccm_diarrhea";
         private static final String CHILD_HV_MALNUTRITION_SCREENING = "child_hv_malnutrition_screening";
 
+        public static final String SKIN_TO_SKIN = "child_skin_to_skin";
+
         public static String getCbhsRegistrationForm() {
             return CBHS_REGISTRATION_FORM;
         }
@@ -148,6 +150,9 @@ public class Constants extends CoreConstants {
         public static String getChildHvMalnutritionScreening() {
             return CHILD_HV_MALNUTRITION_SCREENING;
         }
+
+        public static String getSkinToSkin() { return SKIN_TO_SKIN; }
+
     }
 
     public static final class Events {
