@@ -1,6 +1,6 @@
 ---
 name: step1_issue_referral_toddler
-description: If Danger Sign Present Refer Her to the Health Facility
+description: Toaster to issue referral to toddler
 priority: 1
 condition: "step1_toddler_visited_health_facility =='no'"
 actions:
