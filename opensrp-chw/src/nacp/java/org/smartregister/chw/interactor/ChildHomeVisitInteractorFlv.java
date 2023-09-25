@@ -10,6 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.R;
 import org.smartregister.chw.actionhelper.MalnutritionScreeningActionHelper;
+import org.smartregister.chw.actionhelper.ChildHVProblemSolvingHelper;
 import org.smartregister.chw.anc.actionhelper.HomeVisitActionHelper;
 import org.smartregister.chw.anc.domain.VisitDetail;
 import org.smartregister.chw.anc.model.BaseAncHomeVisitAction;
@@ -26,6 +27,7 @@ import timber.log.Timber;
 
 public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractorFlv {
 
+
     @Override
     protected void bindEvents(Map<String, ServiceWrapper> serviceWrapperMap) throws BaseAncHomeVisitAction.ValidationException {
         try {
@@ -38,6 +40,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
             evaluateNutritionStatus();
             evaluateObsAndIllness();
             evaluateMalnutritionScreening(serviceWrapperMap);
+            evaluateProblemSolving();
         } catch (BaseAncHomeVisitAction.ValidationException e) {
             throw (e);
         } catch (Exception e) {
@@ -273,7 +276,7 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
                 .build();
         actionList.put(context.getString(R.string.anc_home_visit_observations_n_illnes), observation);
     }
-
+  
     private void evaluateMalnutritionScreening(Map<String, ServiceWrapper> serviceWrapperMap) throws Exception {
         ServiceWrapper serviceWrapper = serviceWrapperMap.get("Malnutrition Screening");
         if (serviceWrapper == null) return;
@@ -299,5 +302,16 @@ public class ChildHomeVisitInteractorFlv extends DefaultChildHomeVisitInteractor
                 .withHelper(malnutritionScreeningActionHelper)
                 .build();
         actionList.put(title, malnutritionScreeningAction);
+    }
+  
+    private void evaluateProblemSolving() throws Exception {
+        BaseAncHomeVisitAction action = new BaseAncHomeVisitAction.Builder(context, context.getString(R.string.child_problem_solving))
+                    .withOptional(false)
+                    .withDetails(details)
+                    .withProcessingMode(BaseAncHomeVisitAction.ProcessingMode.SEPARATE)
+                    .withFormName(Constants.JsonForm.getChildHvProblemSolvingForm())
+                    .withHelper(new ChildHVProblemSolvingHelper())
+                    .build();
+            actionList.put(context.getString(R.string.child_problem_solving), action);
     }
 }
