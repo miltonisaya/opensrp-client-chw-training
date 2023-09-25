@@ -333,6 +333,7 @@
     <!-- PNC Home visit subtitle text -->
     <string name="pnc_danger_signs_mama">Dalili za hatari - Mama</string>
     <string name="pnc_danger_signs_baby_task">Dalili za hatari - Mtoto </string>
+    <string name="pnc_skin_to_skin">Ushauri juu ya matunzo ya ngozi kwa ngozi (KMC)</string>
 
     <string name="pnc_health_facility_visit_within_fourty_eight_hours">Hudhurio katika kituo cha kutolea huduma za afya kwa huduma ya mtoto na mama baada ya kujifungua - ndani ya masaa 48</string>
     <string name="pnc_health_facility_visit_days_three_to_seven">Hudhurio katika kituo cha kutolea huduma za afya kwa huduma ya mtoto na mama baada ya kujifungua - siku 3 - 7</string>
