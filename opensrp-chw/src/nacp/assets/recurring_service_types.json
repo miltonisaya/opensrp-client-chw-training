@@ -334,5 +334,106 @@
         }
       }
     ]
+  },
+  {
+    "type": "Malnutrition Screening",
+    "service_logic": "",
+    "service_group": "child",
+    "openmrs_service_name": {
+      "parent_entity": "",
+      "entity": "concept",
+      "entity_id": ""
+    },
+    "openmrs_date": {
+      "parent_entity": "",
+      "entity": "encounter",
+      "entity_id": "encounter_date"
+    },
+    "services": [
+      {
+        "id": "261",
+        "name": "Malnutrition Screening month6",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+5m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+7m"
+          }
+        }
+      },
+      {
+        "id": "262",
+        "name": "Malnutrition Screening month7",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+1m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+8m"
+          }
+        }
+      },
+      {
+        "id": "263",
+        "name": "Malnutrition Screening month8",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+1m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+9m"
+          }
+        }
+      },
+      {
+        "id": "264",
+        "name": "Malnutrition Screening month9",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+1m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+10m"
+          }
+        }
+      },
+      {
+        "id": "265",
+        "name": "Malnutrition Screening month10",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+1m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+11m"
+          }
+        }
+      },
+      {
+        "id": "266",
+        "name": "Malnutrition Screening month11",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+1m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+12m"
+          }
+        }
+      }
+    ]
   }
 ]
