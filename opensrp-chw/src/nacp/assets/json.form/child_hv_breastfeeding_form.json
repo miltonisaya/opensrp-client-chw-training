@@ -50,6 +50,13 @@
     "title": "Essential New Born Care: Breastfeeding",
     "fields": [
       {
+        "key": "visit_1_visit_8",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden"
+      },
+      {
         "key": "breastfeding_intro",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -196,6 +203,13 @@
             "openmrs_entity_id": "chk_none"
           }
         ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "child_hv_breastfeeding_relevance.yml"
+            }
+          }
+        },
         "v_required": {
           "value": "true",
           "err": "Please pick at least one"

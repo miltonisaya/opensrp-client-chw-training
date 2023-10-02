@@ -50,6 +50,13 @@
     "title": "Huduma muhimu ya watoto wachanga: Unyonyeshaji wa maziwa ya mama",
     "fields": [
       {
+        "key": "visit_1_visit_8",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "hidden"
+      },
+      {
         "key": "breastfeding_intro",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
