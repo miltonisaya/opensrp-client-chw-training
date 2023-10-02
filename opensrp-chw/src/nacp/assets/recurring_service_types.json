@@ -624,11 +624,25 @@
     "services": [
       {
         "id": "1",
+        "name": "Exclusive breastfeeding6",
+        "schedule": {
+          "due": {
+            "reference": "dob",
+            "offset": "+3m"
+          },
+          "expiry": {
+            "reference": "dob",
+            "offset": "+3m"
+          }
+        }
+      },
+      {
+        "id": "2",
         "name": "Exclusive breastfeeding7",
         "schedule": {
           "due": {
             "reference": "dob",
-            "offset": "+4m"
+            "offset": "+1m"
           },
           "expiry": {
             "reference": "dob",
@@ -637,7 +651,7 @@
         }
       },
       {
-        "id": "2",
+        "id": "3",
         "name": "Exclusive breastfeeding8",
         "schedule": {
           "due": {
@@ -651,7 +665,7 @@
         }
       },
       {
-        "id": "3",
+        "id": "4",
         "name": "Exclusive breastfeeding9",
         "schedule": {
           "due": {
@@ -665,7 +679,7 @@
         }
       },
       {
-        "id": "4",
+        "id": "5",
         "name": "Exclusive breastfeeding10",
         "schedule": {
           "due": {
@@ -679,7 +693,7 @@
         }
       },
       {
-        "id": "5",
+        "id": "6",
         "name": "Exclusive breastfeeding11",
         "schedule": {
           "due": {
@@ -693,7 +707,7 @@
         }
       },
       {
-        "id": "6",
+        "id": "7",
         "name": "Exclusive breastfeeding12",
         "schedule": {
           "due": {
@@ -707,7 +721,7 @@
         }
       },
       {
-        "id": "7",
+        "id": "8",
         "name": "Exclusive breastfeeding13",
         "schedule": {
           "due": {
@@ -721,7 +735,7 @@
         }
       },
       {
-        "id": "8",
+        "id": "9",
         "name": "Exclusive breastfeeding14",
         "schedule": {
           "due": {
@@ -735,7 +749,7 @@
         }
       },
       {
-        "id": "9",
+        "id": "10",
         "name": "Exclusive breastfeeding15",
         "schedule": {
           "due": {
