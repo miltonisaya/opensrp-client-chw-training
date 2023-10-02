@@ -23,7 +23,9 @@ public class ExclusiveBreastFeedingAction extends HomeVisitActionHelper {
     private Context context;
     private String exclusive_breast_feeding;
     private Alert alert;
+
     private String visitID = "";
+
     private String jsonString;
     public ExclusiveBreastFeedingAction(Context context, Alert alert) {
         this.context = context;
