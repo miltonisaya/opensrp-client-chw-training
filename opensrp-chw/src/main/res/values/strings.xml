@@ -446,6 +446,9 @@
     <string name="agyw_reports_subtitle">View AGYW Report</string>
     <string name="view_visit_history">View visit history</string>
 
+    <string name="child_danger_signs_baby">Danger signs</string>
+    <string name="child_danger_signs_baby_task">Danger signs</string>
+
 
 
     <string name="menu_iccm">iCCM</string>
