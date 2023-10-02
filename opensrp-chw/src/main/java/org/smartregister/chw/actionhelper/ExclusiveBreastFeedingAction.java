@@ -26,7 +26,6 @@ public class ExclusiveBreastFeedingAction extends HomeVisitActionHelper {
     private String visitID = "";
     private String jsonString;
 
-
     public ExclusiveBreastFeedingAction(Context context, Alert alert) {
         this.context = context;
         this.alert = alert;
@@ -54,11 +53,8 @@ public class ExclusiveBreastFeedingAction extends HomeVisitActionHelper {
             JSONObject jsonObject = new JSONObject(jsonString);
             JSONArray fields = JsonFormUtils.fields(jsonObject);
             JSONObject visit_1_visit_8 = JsonFormUtils.getFieldJSONObject(fields, "visit_1_visit_8");
-            if (this.visitID.equalsIgnoreCase("1") || this.visitID.equalsIgnoreCase("3") || this.visitID.equalsIgnoreCase("5") ||
-                    this.visitID.equalsIgnoreCase("7") || this.visitID.equalsIgnoreCase("8") || this.visitID.equalsIgnoreCase("9")) {
-                if (visit_1_visit_8 != null) {
+            if ((visit_1_visit_8 != null) && (this.visitID.equalsIgnoreCase("1") || this.visitID.equalsIgnoreCase("3") || this.visitID.equalsIgnoreCase("5") || this.visitID.equalsIgnoreCase("7") || this.visitID.equalsIgnoreCase("8") || this.visitID.equalsIgnoreCase("9"))) {
                     visit_1_visit_8.put("value", "true");
-                }
             }
             return jsonObject.toString();
         } catch (JSONException e) {
