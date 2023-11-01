@@ -535,4 +535,13 @@
     <string name="child_problem_solving">Problem Solving</string>
     <string name="child_problem_solving_task">Playing and Communicating challenge</string>
 
+    <string name="hivst_mobilization_session">HIVST Mobilization Session</string>
+    <string name="hivst_mobilization_session_details">HIVST Mobilization Session Details</string>
+    <string name="back_to_all_mobilization_sessions">Back to All Mobilization Sessions</string>
+    <string name="mobilization_sessions">Mobilization Session</string>
+    <string name="mobilization_session_details">Mobilization Session Details</string>
+
+
+
+
 </resources>
