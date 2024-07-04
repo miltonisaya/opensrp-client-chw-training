@@ -40,7 +40,7 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
                 model.mainSelect("ec_family_member", mainCondition));
 
 
-        ((GeRegisterFragment) view).initializeAdapter(new HashSet<>());
+        ((GeRegisterFragment) view).initializeAdapter();
         ((GeRegisterFragment) view).countExecute();
         ((GeRegisterFragment) view).filterandSortInInitializeQueries();
     }

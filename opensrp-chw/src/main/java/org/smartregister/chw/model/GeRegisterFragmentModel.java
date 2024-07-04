@@ -6,7 +6,7 @@ import org.smartregister.chw.contract.GeRegisterFragmentContract;
 public class GeRegisterFragmentModel implements GeRegisterFragmentContract.Model {
     @Override
     public String mainCondition() {
-        return " gender = 'Female' ";
+        return " is_closed = 0 ";
     }
 
     @Override
