@@ -5,7 +5,6 @@ import org.smartregister.chw.fragment.GeRegisterFragment;
 import org.smartregister.configurableviews.model.View;
 import org.smartregister.view.contract.BaseRegisterFragmentContract;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -35,14 +34,14 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
     @Override
     public void initializeQueries(String mainCondition) {
         view.initializeQueryParams(
-                "ec_family_member",
-                model.countSelect("ec_family_member", mainCondition),
-                model.mainSelect("ec_family_member", mainCondition));
+                model.getTableName(),
+                model.countSelect(mainCondition),
+                model.mainSelect(mainCondition));
 
 
         ((GeRegisterFragment) view).initializeAdapter();
-        ((GeRegisterFragment) view).countExecute();
-        ((GeRegisterFragment) view).filterandSortInInitializeQueries();
+        view.countExecute();
+        view.filterandSortInInitializeQueries();
     }
 
     @Override
@@ -53,5 +52,9 @@ public class GeRegisterFragmentPresenter implements BaseRegisterFragmentContract
     @Override
     public void searchGlobally(String s) {
 
+    }
+
+    public String getTableName(){
+        return model.getTableName();
     }
 }

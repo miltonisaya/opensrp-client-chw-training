@@ -9,9 +9,11 @@ public interface GeRegisterFragmentContract extends BaseRegisterFragmentContract
 
         String defaultSortQuery();
 
-        String mainSelect(String tableName, String mainCondition);
+        String getTableName();
 
-        String countSelect(String tableName, String mainCondition);
+        String mainSelect(String mainCondition);
+
+        String countSelect(String mainCondition);
     }
 
 }

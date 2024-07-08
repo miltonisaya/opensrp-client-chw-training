@@ -15,13 +15,18 @@ public class GeRegisterFragmentModel implements GeRegisterFragmentContract.Model
     }
 
     @Override
-    public String mainSelect(String tableName, String mainCondition) {
-        return "SELECT id as _id, * FROM " + tableName + " WHERE " + mainCondition;
+    public String getTableName() {
+        return "ec_family_member";
     }
 
     @Override
-    public String countSelect(String tableName, String mainCondition) {
-        return "SELECT count(*) FROM " + tableName + " WHERE " + mainCondition;
+    public String mainSelect(String mainCondition) {
+        return "SELECT id as _id, * FROM "+getTableName()+" WHERE "+mainCondition;
+    }
+
+    @Override
+    public String countSelect(String mainCondition) {
+        return "SELECT COUNT(*) FROM "+getTableName()+" WHERE "+mainCondition;
 
     }
 }

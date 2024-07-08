@@ -1,7 +1,13 @@
 package org.smartregister.chw.fragment;
 
+import android.app.Activity;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.smartregister.chw.R;
 import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.chw.presenter.GeRegisterFragmentPresenter;
 import org.smartregister.chw.provider.OpdRegisterProvider;
@@ -19,6 +25,12 @@ public class GeRegisterFragment extends BaseRegisterFragment {
         clientAdapter = new RecyclerViewPaginatedAdapter(null, childRegisterProvider, context().commonrepository(this.tablename));
         clientAdapter.setCurrentlimit(20);
         clientsView.setAdapter(clientAdapter);
+    }
+
+    @Override
+    public void setupViews(View view) {
+        super.setupViews(view);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("GE");
     }
 
     @Override
@@ -49,7 +61,7 @@ public class GeRegisterFragment extends BaseRegisterFragment {
 
     @Override
     public String getTablename() {
-        return "ec_family_member";
+        return ((GeRegisterFragmentPresenter)presenter).getTableName();
     }
 
     @Override
