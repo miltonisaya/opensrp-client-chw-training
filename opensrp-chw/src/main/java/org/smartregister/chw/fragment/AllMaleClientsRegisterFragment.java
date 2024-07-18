@@ -1,6 +1,8 @@
 package org.smartregister.chw.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import org.smartregister.chw.R;
 import org.smartregister.chw.configs.AllClientsRegisterRowOptions;
+import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.core.fragment.CoreAllClientsRegisterFragment;
 import org.smartregister.chw.provider.ChwAllMaleClientsQueryProvider;
 import org.smartregister.chw.provider.ChwMaleClientRegisterProvider;
@@ -18,7 +21,7 @@ import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
 import org.smartregister.opd.configuration.OpdConfiguration;
 import org.smartregister.opd.utils.ConfigurationInstancesHelper;
 
-
+import timber.log.Timber;
 
 
 public class AllMaleClientsRegisterFragment extends CoreAllClientsRegisterFragment {

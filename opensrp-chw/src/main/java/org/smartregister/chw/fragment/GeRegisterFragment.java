@@ -1,22 +1,19 @@
 package org.smartregister.chw.fragment;
 
-import android.app.Activity;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import org.smartregister.chw.R;
+import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.chw.presenter.GeRegisterFragmentPresenter;
 import org.smartregister.chw.provider.OpdRegisterProvider;
-import org.smartregister.chw.sbc.provider.SbcRegisterProvider;
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
+import org.smartregister.view.customcontrols.CustomFontTextView;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class GeRegisterFragment extends BaseRegisterFragment {
 
@@ -30,7 +27,22 @@ public class GeRegisterFragment extends BaseRegisterFragment {
     @Override
     public void setupViews(View view) {
         super.setupViews(view);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("GE");
+
+        // Update top left icon
+        View qrCodeView = view.findViewById(R.id.scanQrCode);
+        qrCodeView.setVisibility(View.GONE);
+
+        // Update title name
+        view.findViewById(R.id.opensrp_logo_image_view).setVisibility(View.GONE);
+        CustomFontTextView title = view.findViewById(R.id.txt_title_label);
+        title.setVisibility(View.VISIBLE);
+        title.setText(R.string.menu_ge);
+
+        Toolbar toolbar = view.findViewById(R.id.register_toolbar);
+
+        //Obtain an instance of the Navigation menu within our activity
+        NavigationMenu.getInstance(getActivity(), view, toolbar);
+
     }
 
     @Override
@@ -61,7 +73,7 @@ public class GeRegisterFragment extends BaseRegisterFragment {
 
     @Override
     public String getTablename() {
-        return ((GeRegisterFragmentPresenter)presenter).getTableName();
+        return ((GeRegisterFragmentPresenter) presenter).getTableName();
     }
 
     @Override
