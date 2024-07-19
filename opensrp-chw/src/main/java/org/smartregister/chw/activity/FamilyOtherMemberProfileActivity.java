@@ -64,13 +64,23 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
+
         String gender = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.GENDER, false);
+
         menu.findItem(R.id.action_location_info).setVisible(true);
         menu.findItem(R.id.action_tb_registration).setVisible(false);
         menu.findItem(R.id.action_sick_child_follow_up).setVisible(false);
         menu.findItem(R.id.action_malaria_diagnosis).setVisible(false);
         menu.findItem(R.id.action_remove_member).setVisible(false);
 
+        String dateOBirth = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
+        int clientAge = Utils.getAgeFromDate(dateOBirth);
+
+        if (gender.equalsIgnoreCase("female") && clientAge >= 15) {
+            menu.findItem(R.id.action_ge_enrollment).setVisible(true);
+        } else {
+            menu.findItem(R.id.action_ge_enrollment).setVisible(false);
+        }
 
         AllSharedPreferences allSharedPreferences = org.smartregister.util.Utils.getAllSharedPreferences();
         SharedPreferences preferences = allSharedPreferences.getPreferences();
@@ -388,6 +398,11 @@ public class FamilyOtherMemberProfileActivity extends CoreFamilyOtherMemberProfi
     @Override
     protected void startGbvRegistration() {
         //TOBE Implementented
+    }
+
+    @Override
+    protected void startGeEnrollment() {
+
     }
 
     @Override

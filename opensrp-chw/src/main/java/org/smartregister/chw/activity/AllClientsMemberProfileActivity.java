@@ -64,6 +64,17 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
         menu.findItem(R.id.action_malaria_diagnosis).setVisible(false);
         menu.findItem(R.id.action_remove_member).setVisible(false);
 
+        if (gender.equalsIgnoreCase("female")) {
+            String dob = Utils.getValue(commonPersonObject.getColumnmaps(), DBConstants.KEY.DOB, false);
+            int age = Utils.getAgeFromDate(dob);
+            if (age >= 15)
+                menu.findItem(R.id.action_ge_enrollment).setVisible(true);
+            else
+                menu.findItem(R.id.action_ge_enrollment).setVisible(false);
+        } else {
+            menu.findItem(R.id.action_ge_enrollment).setVisible(false);
+        }
+
         AllSharedPreferences allSharedPreferences = org.smartregister.util.Utils.getAllSharedPreferences();
         SharedPreferences preferences = allSharedPreferences.getPreferences();
         String teamRoleIdentifier = "";
@@ -283,6 +294,11 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
     @Override
     protected void startGbvRegistration() {
         //TOBE Implementented
+    }
+
+    @Override
+    protected void startGeEnrollment() {
+        GeRegisterActivity.startRegistration(this,baseEntityId);
     }
 
     @Override
