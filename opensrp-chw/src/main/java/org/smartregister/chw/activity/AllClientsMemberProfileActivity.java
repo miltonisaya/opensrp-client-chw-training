@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.Menu;
+import android.widget.Toast;
 
 import androidx.viewpager.widget.ViewPager;
 
@@ -298,7 +299,9 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
 
     @Override
     protected void startGeEnrollment() {
-        GeRegisterActivity.startRegistration(this,baseEntityId);
+        Toast.makeText(this,
+                "StartGeEnrollment : BaseEntityId = "+baseEntityId,
+                Toast.LENGTH_LONG).show();
     }
 
     @Override
