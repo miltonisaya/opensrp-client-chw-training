@@ -1,105 +1,56 @@
 ---
 name: step1_date_of_support
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'"
+condition: "step1_ge_service_type=='Legal_Aid_Support'"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_user_first_name
+name: step1_gbv_elements
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
+condition: "step1_ge_service_type == 'legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_user_middle_name
+name: step1_legal_services
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_user_surname
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_user_surname
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_DOB
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_Sex
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_Village
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'||step1_GE_Service_Type=='small_scale_entreprenuers'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_GBV_elements
-description: only clients that have been registered
-condition: "step1_GE_Service_Type == 'Legal_Aid_Support'"
-actions:
-  - "isRelevant = true"
-
----
-name: step1_Legal_services
-description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'"
+condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_other_options
 description: only clients that have been registered
-condition: "step1_Legal_services=='others_specify'"
+condition: "step1_legal_services=='others_specify'"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_Legal_services_provided
+name: step1_legal_services_provided
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'"
+condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_Referral_destination
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'"
+condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_other_referrals
 description: only clients that have been registered
-condition: "step1_Legal_services=='others_specify'"
+condition: "step1_legal_services=='others_specify'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_Property_ownership
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Legal_Aid_Support'"
+condition: "step1_ge_service_type=='legal_aid_support'"
 actions:
   - "isRelevant = true"
 
@@ -126,7 +77,7 @@ actions:
 ---
 name: step1_gender_equality_sensitization
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Household_Sensitized_on_GE_Issues'"
+condition: "step1_ge_service_type=='household_sensitized_on_ge_issues'"
 actions:
   - "isRelevant = true"
 
@@ -140,7 +91,7 @@ actions:
 ---
 name: step1_sensitization_session
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='Household_Sensitized_on_GE_Issues'"
+condition: "step1_ge_service_type=='household_sensitized_on_ge_issues'"
 actions:
   - "isRelevant = true"
 
@@ -154,28 +105,28 @@ actions:
 ---
 name: step1_Referral_destination
 description: choose referral
-condition: "step1_Legal_services_provided.equals('referral')"
+condition: "step1_legal_services_provided.equals('referral')"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_registerpublication_11_4819_670ed_client
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='small_scale_entreprenuers'"
+condition: "step1_ge_service_type=='small_scale_entreprenuers'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_challenges_faced
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='small_scale_entreprenuers'"
+condition: "step1_ge_service_type=='small_scale_entreprenuers'"
 actions:
   - "isRelevant = true"
 
 ---
 name: step1_client_counselling
 description: only clients that have been registered
-condition: "step1_GE_Service_Type=='small_scale_entreprenuers'"
+condition: "step1_ge_service_type=='small_scale_entreprenuers'"
 actions:
   - "isRelevant = true"
 
