@@ -302,6 +302,10 @@ public class AllClientsMemberProfileActivity extends CoreAllClientsMemberProfile
         Toast.makeText(this,
                 "StartGeEnrollment : BaseEntityId = "+baseEntityId,
                 Toast.LENGTH_LONG).show();
+
+        Intent getIntent = new Intent(this, GeRegisterActivity.class);
+        getIntent.putExtra("BASE_ENTITY_ID",baseEntityId);
+        startActivity(getIntent);
     }
 
     @Override
