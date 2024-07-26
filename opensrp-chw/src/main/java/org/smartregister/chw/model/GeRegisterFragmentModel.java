@@ -16,12 +16,12 @@ public class GeRegisterFragmentModel implements GeRegisterFragmentContract.Model
 
     @Override
     public String getTableName() {
-        return "ec_family_member";
+        return "ec_gender_equality";
     }
 
     @Override
     public String mainSelect(String mainCondition) {
-        return "SELECT id as _id, * FROM "+getTableName()+" WHERE "+mainCondition;
+        return "SELECT g.id as _id, fm.*,f.village_town FROM "+getTableName()+" g JOIN ec_family_member fm on fm.base_entity_id = g.base_entity_id join ec_family f on f.base_entity_id = fm.relational_id WHERE g."+mainCondition;
     }
 
     @Override
