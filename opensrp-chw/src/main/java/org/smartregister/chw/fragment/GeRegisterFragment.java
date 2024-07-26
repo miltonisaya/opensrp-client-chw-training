@@ -1,19 +1,25 @@
 package org.smartregister.chw.fragment;
 
+import android.content.Intent;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
 import org.smartregister.chw.R;
+import org.smartregister.chw.activity.GeProfileActivity;
 import org.smartregister.chw.core.custom_views.NavigationMenu;
 import org.smartregister.chw.model.GeRegisterFragmentModel;
 import org.smartregister.chw.presenter.GeRegisterFragmentPresenter;
 import org.smartregister.chw.provider.OpdRegisterProvider;
+import org.smartregister.commonregistry.CommonPersonObject;
+import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
 import org.smartregister.view.customcontrols.CustomFontTextView;
 import org.smartregister.view.fragment.BaseRegisterFragment;
 
 import java.util.HashMap;
+
+import timber.log.Timber;
 
 public class GeRegisterFragment extends BaseRegisterFragment {
 
@@ -83,7 +89,12 @@ public class GeRegisterFragment extends BaseRegisterFragment {
 
     @Override
     protected void onViewClicked(View view) {
-
+        //Get the client
+        Timber.d("............Opening client profile activity ..................................");
+        CommonPersonObjectClient client = (CommonPersonObjectClient) view.getTag(R.id.VIEW_CLIENT);
+        Intent intent = new Intent(getActivity(), GeProfileActivity.class);
+        intent.putExtra("client_details",client);
+        startActivity(intent);
     }
 
     @Override
