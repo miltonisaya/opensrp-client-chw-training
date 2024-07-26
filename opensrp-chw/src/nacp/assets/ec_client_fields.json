@@ -5897,6 +5897,236 @@
           }
         }
       ]
+    },
+    {
+      "name": "ec_gender_equality",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "consent_given",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ge_consent_given"
+          }
+        },
+        {
+          "column_name": "date_of_enrollment",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "date_of_enrollment"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "version"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ec_ge_services",
+      "columns": [
+        {
+          "column_name": "base_entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "formSubmissionId"
+          }
+        },
+        {
+          "column_name": "entity_id",
+          "type": "Event",
+          "json_mapping": {
+            "field": "baseEntityId"
+          }
+        },
+        {
+          "column_name": "ge_service_type",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "ge_service_type"
+          }
+        },
+        {
+          "column_name": "date_of_support",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "date_of_support"
+          }
+        },
+        {
+          "column_name": "gbv_elements",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "gbv_elements"
+          }
+        },
+        {
+          "column_name": "legal_services",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "legal_services"
+          }
+        },
+        {
+          "column_name": "other_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_options"
+          }
+        },
+        {
+          "column_name": "legal_services_provided",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "legal_services_provided"
+          }
+        },
+        {
+          "column_name": "referral_destination",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "referral_destination"
+          }
+        },
+        {
+          "column_name": "other_referrals",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_referrals"
+          }
+        },
+        {
+          "column_name": "property_ownership",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "property_ownership"
+          }
+        },
+        {
+          "column_name": "type_of_property_owned",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "type_of_property_owned"
+          }
+        },
+        {
+          "column_name": "other_property",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_property"
+          }
+        },
+        {
+          "column_name": "gender_equality_sensitization",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "gender_equality_sensitization"
+          }
+        },
+        {
+          "column_name": "sensitization_options",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sensitization_options"
+          }
+        },
+        {
+          "column_name": "sensitization_session",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "sensitization_session"
+          }
+        },
+        {
+          "column_name": "followup_visit_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "followup_visit_date"
+          }
+        },
+        {
+          "column_name": "registered_client",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "registered_client"
+          }
+        },
+        {
+          "column_name": "registration_area",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "registration_area"
+          }
+        },
+        {
+          "column_name": "registration_date",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "registration_date"
+          }
+        },
+        {
+          "column_name": "challenges_faced",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "challenges_faced"
+          }
+        },
+        {
+          "column_name": "other_challenges",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "other_challenges"
+          }
+        },
+        {
+          "column_name": "client_counselling",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "client_counselling"
+          }
+        },
+        {
+          "column_name": "last_interacted_with",
+          "type": "Event",
+          "json_mapping": {
+            "field": "obs.fieldCode",
+            "concept": "version"
+          }
+        }
+      ]
     }
   ]
 }
